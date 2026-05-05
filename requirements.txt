@@ -1,0 +1,26 @@
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+scikit-learn
+scipy
+statsmodels
+jupyter
+nbconvert
+papermill
+streamlit
+joblib
+pyyaml
+imbalanced-learn
+python-pptx
+fpdf2
+xlsxwriter
+openpyxl
+tabulate
+jinja2
+# Investigación Bibliográfica Automatizada:
+pyalex
+bibtexparser
+langchain
+# Quarto (requiere instalación de sistema: quarto.org)

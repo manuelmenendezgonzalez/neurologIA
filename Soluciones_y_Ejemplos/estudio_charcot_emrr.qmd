@@ -1,0 +1,63 @@
+---
+title: "Análisis de la Esclerosis en Placas mediante Biomarcadores Digitales"
+author: "Jean Marie Charcot"
+affiliation: "Hôpital de la Salpêtrière"
+date: "1868 (Versión 2026)"
+format:
+  pdf:
+    toc: true
+    number-sections: true
+bibliography: referencias.bib
+csl: vancouver.csl
+---
+
+# Abstract
+
+Este manuscrito revisita las observaciones iniciales de la *sclérose en plaques* integrando técnicas modernas de análisis de datos. Evaluamos la cohorte de 200 pacientes para validar la correlación entre el daño estructural visible en RM y la progresión de la discapacidad clínica.
+
+# Introducción
+
+Desde las primeras descripciones clínicas en la Salpêtrière, hemos buscado la causa de la parálisis y el temblor. Hoy, los avances en resonancia magnética [@filippi2018] nos permiten ver lo que antes solo veíamos en la autopsia: el daño axonal y la atrofia cerebral.
+
+# Metodología
+
+Analizamos la base de datos `base_datos_clinica_emrr.csv` empleando algoritmos de Python 3.13. Se ha puesto especial énfasis en la variable `MRI_Atrofia` como indicador de neurodegeneración irreversible.
+
+# Resultados
+
+```{python}
+#| label: setup
+#| include: false
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from neuro_utils import load_and_clean_data
+df = load_and_clean_data()
+```
+
+## Relación entre Atrofia y Discapacidad
+
+La pérdida de volumen cerebral es un factor determinante en la evolución del EDSS.
+
+```{python}
+#| label: fig-edss-atrofia
+#| echo: false
+#| fig-cap: "Relación entre Índice de Atrofia y EDSS Actual."
+plt.figure(figsize=(8, 5))
+sns.regplot(x='MRI_Atrofia', y='EDSS_Actual', data=df, color='darkred', scatter_kws={'alpha':0.4})
+plt.xlabel("Índice de Atrofia (MRI_Atrofia)")
+plt.ylabel("Discapacidad (EDSS Actual)")
+plt.show()
+```
+
+# Discusión
+
+La progresión de la enfermedad, tal como la definen los criterios modernos [@polman2011], no solo depende de los brotes agudos. Nuestros datos sugieren que la atrofia subyacente marca el destino funcional del paciente, confirmando mis sospechas iniciales sobre la importancia de las lesiones en el sistema nervioso central.
+
+# Conclusiones
+
+La neurología del siglo XXI debe integrar la IA para anticipar la discapacidad. La medición de la atrofia es hoy tan vital como lo fue mi martillo de reflejos en el siglo XIX.
+
+# Referencias
+::: {#refs}
+:::

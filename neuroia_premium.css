@@ -1,0 +1,101 @@
+/* @theme neuroia_premium */
+
+@import 'default';
+
+section {
+    background-color: #0F203C;
+    color: #E5E8E2;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font-size: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1, h2 {
+    color: #2ECC71;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #2ECC71;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 35px;
+    border-bottom: none;
+    color: #F1C40F; /* Amarillo clínico para énfasis */
+}
+
+strong {
+    color: #2ECC71;
+}
+
+a {
+    color: #3498DB;
+    text-decoration: none;
+}
+
+/* Slide de Portada */
+section.lead {
+    background: linear-gradient(135deg, #0F203C 0%, #1B4F72 100%);
+    text-align: center;
+}
+
+section.lead h1 {
+    border-bottom: none;
+    font-size: 60px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Listas con estilo */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li::before {
+    content: "▹";
+    color: #2ECC71;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Pie de página */
+footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50px;
+    font-size: 14px;
+    color: #7F8C8D;
+    text-transform: uppercase;
+}
+
+/* Badge de número de página */
+span.paginate {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    color: #2ECC71;
+    font-weight: bold;
+}
+
+/* Bloques de código */
+code {
+    background-color: #1C2833;
+    color: #F7F9F9;
+    border-radius: 5px;
+    padding: 2px 8px;
+}
+
+pre {
+    background-color: #1C2833;
+    border: 1px solid #2ECC71;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}

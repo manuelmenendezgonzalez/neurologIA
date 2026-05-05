@@ -1,0 +1,21 @@
+---
+title: "Plantilla de Artículo Científico NeuroIA"
+author: "Investigador"
+format: html
+---
+
+# Introducción
+La Esclerosis Múltiple Remitente Recidivante (EMRR) es...
+
+# Métodos
+Se ha utilizado una cohorte sintética de 200 pacientes.
+
+```{python}
+import pandas as pd
+from neuro_utils import load_and_clean_data
+df = load_and_clean_data()
+df[['EDSS_Actual', 'MRI_Atrofia']].describe()
+```
+
+# Conclusiones
+Los datos sugieren que...
