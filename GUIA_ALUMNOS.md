@@ -4,7 +4,66 @@ Esta guía te ayudará a trabajar con el repositorio del curso usando **ChatGPT 
 
 ---
 
-## Opción 1: ChatGPT Plus + Repositorio (Recomendada para empezar)
+## Opción Principal: Proyecto de ChatGPT Compartido (Recomendada)
+
+El profesor ha creado un **Proyecto de ChatGPT** con todo el contexto del curso cargado. Esta es la forma más sencilla de empezar.
+
+### Acceso al Proyecto
+
+🔗 **URL del Proyecto:** `https://chatgpt.com/g/g-p-69fa482eda308191af2c1545d6f7465e-curso-neurologia/project`
+
+### Cómo Acceder:
+
+1. Asegúrate de que el profesor te haya **invitado al área de trabajo** del curso
+2. Inicia sesión en **chat.openai.com** con tu cuenta ChatGPT Plus
+3. Navega a **Áreas de trabajo** (Workspaces) en el sidebar
+4. Selecciona el área de trabajo del curso
+5. Abre el proyecto **"Curso NeurologIA"**
+
+### Ventajas del Proyecto Compartido:
+
+- ✅ **Contexto pre-cargado**: El repo ya está indexado y disponible
+- ✅ **Historial persistente**: Tus conversaciones se guardan en el proyecto
+- ✅ **Colaboración**: El profesor puede ver y participar en tus chats
+- ✅ **Instrucciones personalizadas**: Optimizado para ejercicios del curso
+- ✅ **No necesitas clonar primero**: Puedes generar código y luego sincronizar
+
+### Flujo de Trabajo con el Proyecto:
+
+1. **Abre el proyecto** desde el área de trabajo compartida
+2. **Pregunta directamente** sobre ejercicios: "Quiero hacer el ejercicio 3 de auditoría"
+3. **Copia el código** generado a tu IDE local
+4. **Prueba y depura** localmente
+5. **Vuelve al proyecto** para iterar: "Me da este error..." o "Mejora la función..."
+
+### Sincronización Local (Para usuarios del Proyecto)
+
+Aunque uses el Proyecto de ChatGPT, necesitarás el código en tu ordenador para ejecutarlo:
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
+cd neurologIA
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Abrir en VS Code (opcional)
+code .
+```
+
+**Flujo recomendado:**
+1. Genera código en el Proyecto de ChatGPT compartido
+2. Copia/pega el código a archivos `.py` en tu carpeta local
+3. Ejecuta y prueba localmente
+4. Si hay errores, comparte el error en el Proyecto de ChatGPT
+5. Itera hasta que funcione
+
+---
+
+## Opción Alternativa: ChatGPT Individual + Repositorio
+
+Si prefieres trabajar en tu ChatGPT personal (fuera del área de trabajo compartida):
 
 ### Paso 1: Cargar el Repositorio en ChatGPT
 
