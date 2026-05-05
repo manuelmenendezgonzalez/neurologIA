@@ -1,0 +1,29 @@
+# Archivos de PowerPoint (muy grandes)
+*.pptx
+*.ppt
+
+# Archivos de Excel grandes
+*.xlsx
+*.xls
+
+# Archivos temporales de Office
+~$*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OneDrive
+*.tmp
