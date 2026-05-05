@@ -12,11 +12,11 @@ Esta guía explica cómo trabajar con el curso usando **ChatGPT Plus** (como pro
 
 ---
 
-## Paso 1: Instalar el IDE (Obligatorio)
+## Paso 1: Instalar tu IDE (Obligatorio)
 
-Para ejecutar todos los ejercicios del curso (incluyendo generación de presentaciones y artículos), necesitas un IDE. Tienes dos opciones gratuitas:
+Para ejecutar todos los ejercicios del curso (incluyendo generación de presentaciones y artículos), necesitas un IDE. Recomendamos estos dos gratuitos con IA integrada:
 
-### Opción A: Windsurf (Recomendada - Con IA integrada gratuita)
+### Opción A: Windsurf (Con IA integrada gratuita)
 
 **Windsurf** es un IDE gratuito con IA integrada (Cascade) que puede leer tus archivos locales, corregir código y generar nuevos scripts automáticamente.
 
@@ -31,7 +31,22 @@ Para ejecutar todos los ejercicios del curso (incluyendo generación de presenta
 - ✅ Puede editar código directamente
 - ✅ Similar a VS Code, sin necesidad de extensiones adicionales
 
-### Opción B: VS Code (Sin IA integrada)
+### Opción B: Antigravity (Con IA integrada gratuita)
+
+**Antigravity** es otro IDE gratuito con IA integrada que permite trabajar con código Python de forma interactiva.
+
+1. Descarga Antigravity: https://www.antigravity.dev/
+2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
+3. Durante la instalación de Python, marca la opción "Add Python to PATH"
+4. Abre Antigravity y abre la carpeta del repositorio clonado
+
+**Ventajas de Antigravity:**
+- ✅ IA integrada gratuita
+- ✅ Interfaz amigable para principiantes
+- ✅ Ejecución de código integrada
+- ✅ Soporte para Python y data science
+
+### Opción C: VS Code (Sin IA integrada)
 
 1. Descarga VS Code: https://code.visualstudio.com
 2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)

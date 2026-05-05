@@ -28,7 +28,7 @@ Este curso proporciona una introducción práctica a los conceptos fundamentales
 
 - Python 3.8 o superior
 - Bibliotecas: pandas, matplotlib, numpy (ver `requirements.txt`)
-- Entorno de desarrollo: VS Code, PyCharm, **Windsurf** (gratuito con IA integrada) o similar
+- Entorno de desarrollo: VS Code, PyCharm, **Windsurf** o **Antigravity** (gratuitos con IA integrada) o similar
 
 ## Instalación
 
