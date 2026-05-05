@@ -1,14 +1,54 @@
-# Guía para Alumnos: Flujo de Trabajo con ChatGPT Plus y NeuroIA
+# Guía para Alumnos: Flujo de Trabajo del Curso NeuroIA
 
-Esta guía te ayudará a trabajar con el repositorio del curso usando **ChatGPT Plus** para generar código, resolver ejercicios y analizar datos neurológicos.
+Esta guía explica cómo trabajar con el curso usando **ChatGPT Plus** (como profesor virtual) y un **IDE local** (para ejecutar todos los ejercicios con automatización completa).
 
 ---
 
-## Opción Principal: Proyecto de ChatGPT Compartido (Recomendada)
+## 🎯 Arquitectura del Curso
 
-El profesor ha creado un **Proyecto de ChatGPT** con todo el contexto del curso cargado. Esta es la forma más sencilla de empezar.
+- **ChatGPT Proyecto**: Tu "profesor virtual" con instrucciones del curso pre-configuradas
+- **IDE Local**: Entorno de desarrollo para ejecutar código y generar archivos (`.pptx`, `.pdf`, etc.)
+- **Repositorio GitHub**: Materiales del curso, dataset y ejercicios
 
-### Acceso al Proyecto
+---
+
+## Paso 1: Instalar el IDE (Obligatorio)
+
+Para ejecutar todos los ejercicios del curso (incluyendo generación de presentaciones y artículos), necesitas un IDE. Recomendamos **VS Code** (gratuito).
+
+### Instalación de VS Code:
+
+1. Descarga VS Code: https://code.visualstudio.com
+2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
+3. Durante la instalación de Python, marca la opción "Add Python to PATH"
+
+### Extensiones de VS Code (recomendadas):
+
+- **Python** (Microsoft)
+- **Jupyter** (Microsoft) - si quieres usar notebooks
+- **GitLens** - para control de versiones
+
+---
+
+## Paso 2: Configurar el Repositorio Local
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
+cd neurologIA
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Abrir en VS Code
+code .
+```
+
+---
+
+## Paso 3: Acceder al Proyecto de ChatGPT
+
+El profesor ha creado un **Proyecto de ChatGPT** que actúa como tu asistente del curso.
 
 🔗 **URL del Proyecto:** `https://chatgpt.com/g/g-p-69fa482eda308191af2c1545d6f7465e-curso-neurologia/project`
 
@@ -20,104 +60,62 @@ El profesor ha creado un **Proyecto de ChatGPT** con todo el contexto del curso 
 4. Selecciona el área de trabajo del curso
 5. Abre el proyecto **"Curso NeurologIA"**
 
-### Ventajas del Proyecto Compartido:
+### Qué ofrece el Proyecto:
 
-- ✅ **Contexto pre-cargado**: El repo ya está indexado y disponible
-- ✅ **Historial persistente**: Tus conversaciones se guardan en el proyecto
-- ✅ **Colaboración**: El profesor puede ver y participar en tus chats
-- ✅ **Instrucciones personalizadas**: Optimizado para ejercicios del curso
-- ✅ **No necesitas clonar primero**: Puedes generar código y luego sincronizar
-
-### Flujo de Trabajo con el Proyecto:
-
-1. **Abre el proyecto** desde el área de trabajo compartida
-2. **Pregunta directamente** sobre ejercicios: "Quiero hacer el ejercicio 3 de auditoría"
-3. **Copia el código** generado a tu IDE local
-4. **Prueba y depura** localmente
-5. **Vuelve al proyecto** para iterar: "Me da este error..." o "Mejora la función..."
-
-### Sincronización Local (Para usuarios del Proyecto)
-
-Aunque uses el Proyecto de ChatGPT, necesitarás el código en tu ordenador para ejecutarlo:
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
-cd neurologIA
-
-# Instalar dependencias
-pip install -r requirements.txt
-
-# Abrir en VS Code (opcional)
-code .
-```
-
-**Flujo recomendado:**
-1. Genera código en el Proyecto de ChatGPT compartido
-2. Copia/pega el código a archivos `.py` en tu carpeta local
-3. Ejecuta y prueba localmente
-4. Si hay errores, comparte el error en el Proyecto de ChatGPT
-5. Itera hasta que funcione
+- ✅ **Contexto pre-cargado**: El repo ya está indexado
+- ✅ **Instrucciones del curso**: Configurado específicamente para NeuroIA
+- ✅ **Historial persistente**: Tus conversaciones se guardan
+- ✅ **Supervisión**: El profesor puede ver y ayudar en tus chats
 
 ---
 
-## Opción Alternativa: ChatGPT Individual + Repositorio
+## Paso 4: Flujo de Trabajo (ChatGPT + IDE)
 
-Si prefieres trabajar en tu ChatGPT personal (fuera del área de trabajo compartida):
+Este es el flujo estándar para todos los ejercicios del curso:
 
-### Paso 1: Cargar el Repositorio en ChatGPT
+### Para Ejercicios 1-6 (Análisis de Datos):
 
-1. Abre **chat.openai.com** con tu cuenta Plus
-2. Crea un nuevo chat
-3. Pega este mensaje de carga del repositorio:
+1. **Abre el Proyecto** de ChatGPT
+2. **Pregunta sobre el ejercicio**: "Quiero hacer el ejercicio 3 de regresión atrofia vs EDSS"
+3. **ChatGPT genera código** optimizado para el curso
+4. **Copia el código** a VS Code (crea archivo `ejercicio3.py`)
+5. **Ejecuta en VS Code**: Terminal → `python ejercicio3.py`
+6. **Si hay errores**: Copia el error al Proyecto de ChatGPT para ayuda
+7. **Itera** hasta que funcione
 
+### Para Ejercicio 16 (Generación de PowerPoint):
+
+1. **Pide código** en el Proyecto: "Genera código para presentación sobre atrofia cortical"
+2. **ChatGPT genera código** con `python-pptx` (layout 4:3, colores corporativos)
+3. **Copia a VS Code** (crea `ejercicio16.py`)
+4. **Ejecuta**: `python ejercicio16.py`
+5. **Se genera** el archivo `.pptx` en tu carpeta local
+6. **Abre el PowerPoint** para revisar las diapositivas
+
+### Para Ejercicio 17 (Artículo Científico):
+
+1. **Pide código** en el Proyecto: "Genera artículo Quarto sobre [tema]"
+2. **ChatGPT genera archivo** `.qmd` con contenido científico
+3. **Copia a VS Code** (crea `articulo.qmd`)
+4. **Instala Quarto** (si no lo tienes): https://quarto.org
+5. **Compila**: `quarto render articulo.qmd`
+6. **Se genera** el PDF con formato científico
+
+---
+
+## 💡 Prompts Útiles
+
+### Para empezar un ejercicio:
 ```
-Voy a trabajar con el repositorio https://github.com/manuelmenendezgonzalez/neurologIA
-
-Por favor, analiza:
-1. La estructura de archivos y su propósito
-2. Los ejercicios disponibles en Soluciones_y_Ejemplos/
-3. El dataset base_datos_emrr.csv y sus columnas
-4. Las utilidades en neuro_utils.py
-
-Luego prepárame para el ejercicio: [indica qué ejercicio vas a hacer]
-```
-
-4. ChatGPT cargará el contexto del repositorio y podrás preguntarle sobre el código
-
-### Paso 2: Clonar el Repositorio en Local
-
-```bash
-# Abre terminal y ejecuta:
-git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
-cd neurologIA
-
-# Instalar dependencias
-pip install -r requirements.txt
-```
-
-### Paso 3: Flujo de Trabajo
-
-1. **Lee el ejercicio** en el chat con ChatGPT
-2. **Pídele que te guíe**: "Quiero hacer el ejercicio X. Explícame qué debo hacer paso a paso"
-3. **Trabaja en tu IDE** favorito (VS Code, PyCharm, Jupyter)
-4. **Copia/pega código** desde ChatGPT a tu editor
-5. **Prueba el código** localmente
-6. **Itera con ChatGPT**: "Me da error X" o "¿Cómo mejoro esta función?"
-
-### Prompts Útiles para Ejercicios
-
-**Para empezar un ejercicio:**
-```
-Estoy en el ejercicio [número]. 
-El objetivo es: [describir objetivo]
-¿Qué algoritmo/método recomiendas?
-Dame el código paso a paso.
+Quiero hacer el ejercicio [número]. 
+Explícame qué debo hacer paso a paso y dame el código completo.
 ```
 
-**Para depurar errores:**
+### Para depurar errores:
 ```
-Tengo este error: [pegar traceback]
+Me da este error al ejecutar el código:
+[pegar traceback]
+
 Mi código actual:
 ```python
 [pegar código]
@@ -125,202 +123,69 @@ Mi código actual:
 ¿Qué está mal y cómo lo arreglo?
 ```
 
-**Para entender conceptos:**
+### Para entender conceptos:
 ```
-Explica [concepto estadístico/algoritmo] aplicado a neurología
-con un ejemplo del dataset EMRR
+Explica [concepto estadístico/método] aplicado a neurología
+con un ejemplo del dataset EMRR.
 ```
 
 ---
 
-## Opción 2: VS Code + GitHub Copilot (Si tienes suscripción)
+## 📁 Estructura de Archivos en tu IDE
 
-Si tienes GitHub Copilot además de ChatGPT Plus:
-
-1. Instala VS Code: https://code.visualstudio.com
-2. Activa GitHub Copilot en VS Code
-3. Abre el repositorio clonado
-4. Copilot sugerirá código mientras escribes
-5. Usa ChatGPT Plus para explicaciones conceptuales más profundas
-
-**Configuración:**
-- Extensión GitHub Copilot (oficial)
-- Extensión Python
-- Extensión Jupyter (si usas notebooks)
+```
+neurologIA/
+├── base_datos_emrr.csv          # Dataset del curso
+├── neuro_utils.py               # Utilidades (usa siempre load_and_clean_data)
+├── requirements.txt             # Dependencias
+├── Soluciones_y_Ejemplos/       # Ejemplos resueltos
+├── ejercicio1.py                # Tu solución (crea estos archivos)
+├── ejercicio2.py
+├── ...
+├── ejercicio16.py               # Genera PowerPoint
+└── articulo.qmd                 # Para ejercicio 17
+```
 
 ---
 
-## Opción 3: Jupyter Notebook + ChatGPT Plus (Análisis de Datos)
+## 🔧 Comandos Útiles en VS Code
 
-Ideal para ejercicios de análisis exploratorio:
-
-1. Instala Jupyter:
 ```bash
-pip install jupyter
-```
+# Ejecutar un script
+python ejercicio3.py
 
-2. Inicia Jupyter:
-```bash
-jupyter notebook
-```
+# Ver archivos generados
+ls
 
-3. Crea un nuevo notebook en la carpeta del repositorio
+# Actualizar el repo con cambios del profesor
+git pull
 
-4. Flujo de trabajo:
-   - Copia prompts de ChatGPT al notebook
-   - Pega código generado en celdas
-   - Ejecuta y visualiza resultados
-   - Itera con ChatGPT basándote en outputs
-
-**Prompt útil para notebooks:**
-```
-Dame el código completo para un Jupyter notebook que:
-1. Cargue base_datos_emrr.csv
-2. Haga análisis exploratorio de [variable]
-3. Visualice [gráfico específico]
-4. Interprete los resultados clínicamente
+# Ver cambios que has hecho
+git status
 ```
 
 ---
 
-## Ejemplo de Ejercicio Resuelto con ChatGPT Plus
+## 📝 Entrega de Ejercicios
 
-### Escenario: Ejercicio de Auditoría de Datos
+### Opción A: Archivos por email/Teams
+- Envía los archivos `.py` generados
+- Para Ej 16: envía el `.pptx`
+- Para Ej 17: envía el `.pdf`
 
-**Tú en ChatGPT:**
-```
-Necesito hacer el ejercicio de auditoría de calidad del dataset EMRR.
-
-Requisitos:
-- Detectar valores faltantes
-- Identificar outliers en EDSS
-- Verificar consistencia de fechas
-- Generar reporte de calidad
-
-Dame el código Python completo y modular.
-```
-
-**ChatGPT te dará código como:**
-```python
-import pandas as pd
-import numpy as np
-from datetime import datetime
-
-def auditar_dataset(ruta_csv):
-    df = pd.read_csv(ruta_csv)
-    
-    reporte = {
-        'total_registros': len(df),
-        'valores_faltantes': df.isnull().sum().to_dict(),
-        'duplicados': df.duplicated().sum(),
-        'outliers_edss': detectar_outliers(df['EDSS']) if 'EDSS' in df.columns else None
-    }
-    
-    return reporte
-
-def detectar_outliers(serie):
-    Q1 = serie.quantile(0.25)
-    Q3 = serie.quantile(0.75)
-    IQR = Q3 - Q1
-    outliers = serie[(serie < Q1 - 1.5*IQR) | (serie > Q3 + 1.5*IQR)]
-    return len(outliers)
-
-# Ejecutar
-if __name__ == "__main__":
-    resultado = auditar_dataset('base_datos_emrr.csv')
-    print(resultado)
-```
-
-**Siguiente iteración:**
-```
-Mejora la función para que:
-1. Genere un archivo Excel con el reporte
-2. Incluya visualizaciones con matplotlib
-3. Detecte inconsistencias entre EDSS y subtipo_clinico
-```
+### Opción B: GitHub (si tienes cuenta)
+- Crea tu fork del repo
+- Sube tus archivos a tu fork
+- Comparte el link con el profesor
 
 ---
 
-## Entregas y Proyectos
+## ❓ Soporte
 
-### Para Entregar Ejercicios:
-
-1. Trabaja en tu rama local:
-```bash
-git checkout -b ejercicio-[tu-nombre]-[numero]
-```
-
-2. Guarda tu código en archivos separados:
-   - `ejercicio_01_[tu_nombre].py`
-   - `resultados_ejercicio_01.xlsx` (si aplica)
-
-3. Comparte con el profesor:
-   - Opción A: Push a tu fork y pull request
-   - Opción B: Enviar archivos por email/Teams
-   - Opción C: Compartir en el foro del curso
-
-### Ejercicio Final - Presentación:
-
-Para la presentación final con ChatGPT Plus:
-
-1. Genera código de análisis
-2. Pide a ChatGPT que te ayude a crear visualizaciones
-3. Exporta gráficos (PNG/SVG)
-4. Crea presentación en PowerPoint con los resultados
-5. Usa ChatGPT para generar guión de presentación:
-```
-Ayúdame a crear un guión de 10 minutos para presentar 
-mi análisis de [tema] a neurólogos. Los hallazgos principales son:
-[enumerar hallazgos]
-```
-
----
-
-## Recursos Adicionales
-
-### Documentación Útil
-- Repositorio del curso: https://github.com/manuelmenendezgonzalez/neurologIA
-- Pandas: https://pandas.pydata.org/docs/
-- Matplotlib: https://matplotlib.org/stable/
-
-### Plugins de VS Code Recomendados
-- Python (Microsoft)
-- Python Docstring Generator
-- Code Runner (ejecutar scripts rápido)
-- Error Lens (ver errores en tiempo real)
-- GitLens (control de versiones)
-
-### Tips de Prompting para Código
-
-**Específico es mejor:**
-- ❌ "Hazme un análisis"
-- ✅ "Crea una función que reciba un DataFrame y devuelva estadísticas de EDSS agrupadas por subtipo_clinico"
-
-**Proporciona contexto:**
-```
-Estoy usando pandas 2.0 y python 3.11.
-El dataset tiene estas columnas: [lista].
-Necesito que el código maneje valores faltantes.
-```
-
-**Pide explicaciones:**
-```
-Además del código, explica:
-1. Por qué elegiste este algoritmo
-2. Qué significan los resultados clínicamente
-3. Limitaciones del análisis
-```
-
----
-
-## Soporte Técnico
-
-Si tienes problemas:
-
-1. **Errores de instalación**: Consulta al profesor o usa el foro
-2. **Errores de código**: Pega el error completo en ChatGPT
-3. **Dudas conceptuales**: ChatGPT Plus es tu primer recurso
-4. **Problemas con el repositorio**: Abre un issue en GitHub
+- **Errores de instalación**: Consulta al profesor
+- **Errores de código**: Pregunta en el Proyecto de ChatGPT
+- **Dudas conceptuales**: ChatGPT es tu primer recurso
+- **Problemas con el repo**: Abre un issue en GitHub
 
 ---
 
