@@ -45,28 +45,9 @@ Para ejecutar todos los ejercicios del curso (incluyendo generación de presenta
 
 ---
 
-## Paso 2: Configurar el Repositorio Local
+## Paso 2: Abrir el Proyecto de ChatGPT (Tu Profesor Virtual)
 
-```bash
-# Clonar el repositorio
-git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
-cd neurologIA
-
-# Instalar dependencias
-pip install -r requirements.txt
-
-# Abrir en Windsurf
-windsurf .
-
-# O abrir en VS Code
-# code .
-```
-
----
-
-## Paso 3: Acceder al Proyecto de ChatGPT
-
-El profesor ha creado un **Proyecto de ChatGPT** que actúa como tu asistente del curso.
+El profesor ha creado un **Proyecto de ChatGPT** que actúa como tu profesor virtual para este curso. Contiene todo el contexto del curso pre-cargado.
 
 🔗 **URL del Proyecto:** `https://chatgpt.com/g/g-p-69fa482eda308191af2c1545d6f7465e-curso-neurologia/project`
 
@@ -87,37 +68,70 @@ El profesor ha creado un **Proyecto de ChatGPT** que actúa como tu asistente de
 
 ---
 
-## Paso 4: Flujo de Trabajo (ChatGPT + IDE)
+## Paso 3: Configurar el Repositorio Local (A través del Proyecto ChatGPT)
 
-Este es el flujo estándar para todos los ejercicios del curso:
+**NO clones el repo manualmente.** En el Proyecto de ChatGPT, pide:
 
-### Para Ejercicios 1-6 (Análisis de Datos):
+```
+Dame el prompt exacto para que mi IDE (Windsurf) clone el repositorio del curso e instale las dependencias.
+```
 
-1. **Abre el Proyecto** de ChatGPT
-2. **Pregunta sobre el ejercicio**: "Quiero hacer el ejercicio 3 de regresión atrofia vs EDSS"
-3. **ChatGPT genera código** optimizado para el curso
-4. **Copia el código** a VS Code (crea archivo `ejercicio3.py`)
-5. **Ejecuta en VS Code**: Terminal → `python ejercicio3.py`
-6. **Si hay errores**: Copia el error al Proyecto de ChatGPT para ayuda
-7. **Itera** hasta que funcione
+ChatGPT te dará un prompt optimizado para tu IDE. Por ejemplo:
 
-### Para Ejercicio 16 (Generación de PowerPoint):
+```
+Abre la carpeta del curso NeuroIA. Clona este repositorio:
+https://github.com/manuelmenendezgonzalez/neurologIA.git
 
-1. **Pide código** en el Proyecto: "Genera código para presentación sobre atrofia cortical"
-2. **ChatGPT genera código** con `python-pptx` (layout 4:3, colores corporativos)
-3. **Copia a VS Code** (crea `ejercicio16.py`)
-4. **Ejecuta**: `python ejercicio16.py`
-5. **Se genera** el archivo `.pptx` en tu carpeta local
-6. **Abre el PowerPoint** para revisar las diapositivas
+Luego instala las dependencias:
+pip install -r requirements.txt
 
-### Para Ejercicio 17 (Artículo Científico):
+Abre el proyecto en el IDE.
+```
 
-1. **Pide código** en el Proyecto: "Genera artículo Quarto sobre [tema]"
-2. **ChatGPT genera archivo** `.qmd` con contenido científico
-3. **Copia a VS Code** (crea `articulo.qmd`)
-4. **Instala Quarto** (si no lo tienes): https://quarto.org
-5. **Compila**: `quarto render articulo.qmd`
-6. **Se genera** el PDF con formato científico
+**Copia ese prompt y pégalo en Windsurf** (o presiona `Ctrl+K` y pide que lo ejecute).
+
+---
+
+## Paso 4: Flujo de Trabajo Oficial del Curso
+
+Este es el flujo estándar para todos los ejercicios:
+
+### 1. Pide el ejercicio al Proyecto de ChatGPT
+
+En el Proyecto, escribe:
+```
+Quiero hacer el ejercicio [número]. Explícame qué debo hacer y dame el código/prompt para mi IDE.
+```
+
+### 2. Ejecuta en tu IDE (Windsurf)
+
+- Copia el código o el prompt que te dio ChatGPT
+- Presiona `Ctrl+K` en Windsurf y pégalo, o crea el archivo directamente
+- Pide a Windsurf que **explique y ejecute** el ejercicio paso a paso
+
+### 3. Si hay errores, problemas o dudas:
+
+**Tienes dos fuentes de ayuda:**
+
+- **Windsurf (IA integrada)**: Presiona `Ctrl+K` y describe el error. La IA del IDE puede leer tus archivos locales y corregir directamente.
+- **Proyecto ChatGPT**: Vuelve al chat del curso y pide ayuda. El profesor virtual tiene todo el contexto del ejercicio.
+
+### Ejemplos por tipo de ejercicio:
+
+**Ejercicios 1-6 (Análisis de Datos):**
+- ChatGPT te da el código Python
+- Windsurf ejecuta y muestra gráficos
+- Itera con Windsurf o ChatGPT si hay errores
+
+**Ejercicio 16 (Generación de PowerPoint):**
+- ChatGPT genera código `python-pptx`
+- Windsurf ejecuta → Se genera `.pptx` automáticamente
+- Revisa las diapositivas generadas
+
+**Ejercicio 17 (Artículo Científico):**
+- ChatGPT genera archivo `.qmd`
+- Windsurf compila con Quarto (si instalado) o genera el archivo
+- Obtienes PDF con formato científico
 
 ---
 
