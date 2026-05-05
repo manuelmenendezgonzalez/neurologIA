@@ -14,9 +14,24 @@ Esta guía explica cómo trabajar con el curso usando **ChatGPT Plus** (como pro
 
 ## Paso 1: Instalar el IDE (Obligatorio)
 
-Para ejecutar todos los ejercicios del curso (incluyendo generación de presentaciones y artículos), necesitas un IDE. Recomendamos **VS Code** (gratuito).
+Para ejecutar todos los ejercicios del curso (incluyendo generación de presentaciones y artículos), necesitas un IDE. Tienes dos opciones gratuitas:
 
-### Instalación de VS Code:
+### Opción A: Windsurf (Recomendada - Con IA integrada gratuita)
+
+**Windsurf** es un IDE gratuito con IA integrada (Cascade) que puede leer tus archivos locales, corregir código y generar nuevos scripts automáticamente.
+
+1. Descarga Windsurf: https://www.windsurf.com/
+2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
+3. Durante la instalación de Python, marca la opción "Add Python to PATH"
+4. Abre Windsurf y abre la carpeta del repositorio clonado
+
+**Ventajas de Windsurf:**
+- ✅ IA integrada gratuita (pide ayuda con `Ctrl+K` o `Cmd+K`)
+- ✅ Lee tus archivos locales automáticamente
+- ✅ Puede editar código directamente
+- ✅ Similar a VS Code, sin necesidad de extensiones adicionales
+
+### Opción B: VS Code (Sin IA integrada)
 
 1. Descarga VS Code: https://code.visualstudio.com
 2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
@@ -40,8 +55,11 @@ cd neurologIA
 # Instalar dependencias
 pip install -r requirements.txt
 
-# Abrir en VS Code
-code .
+# Abrir en Windsurf
+windsurf .
+
+# O abrir en VS Code
+# code .
 ```
 
 ---

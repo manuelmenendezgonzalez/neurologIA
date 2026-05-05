@@ -28,7 +28,7 @@ Este curso proporciona una introducción práctica a los conceptos fundamentales
 
 - Python 3.8 o superior
 - Bibliotecas: pandas, matplotlib, numpy (ver `requirements.txt`)
-- Entorno de desarrollo: VS Code, PyCharm o similar
+- Entorno de desarrollo: VS Code, PyCharm, **Windsurf** (gratuito con IA integrada) o similar
 
 ## Instalación
 
@@ -42,13 +42,13 @@ pip install -r requirements.txt
 
 ## Cómo Usar Este Repositorio
 
-📚 **[Guía para Alumnos](GUIA_ALUMNOS.md)** - Instrucciones completas para trabajar con el curso usando **ChatGPT Plus**, incluyendo:
-- Cómo cargar el repositorio en ChatGPT
-- Flujo de trabajo con VS Code + ChatGPT Plus
+📚 **[Guía para Alumnos](GUIA_ALUMNOS.md)** - Instrucciones completas para trabajar con el curso usando **ChatGPT Plus** y un **IDE local** (VS Code o **Windsurf**, gratuito con IA integrada), incluyendo:
+- Cómo acceder al Proyecto de ChatGPT compartido
+- Flujo de trabajo con IDE + ChatGPT Proyecto
 - Ejemplos de prompts para ejercicios
 - Cómo entregar tareas
 
-**Recomendación:** Si tienes ChatGPT Plus, lee primero la guía de alumnos antes de empezar los ejercicios.
+**Recomendación:** Lee la guía de alumnos antes de empezar los ejercicios.
 
 ## Nota sobre Archivos Grandes
 
@@ -56,10 +56,8 @@ Las presentaciones de PowerPoint (`.pptx`) no están incluidas en este repositor
 
 ## Dirigido a
 
-- Neurólogos en formación y especialistas
+- Neurólogos 
 - Residentes de Neurología
-- Profesionales de neurociencias interesados en herramientas de IA
-- Investigadores en neurodegenerativas
 
 ## Autor
 
@@ -67,4 +65,4 @@ Las presentaciones de PowerPoint (`.pptx`) no están incluidas en este repositor
 
 ---
 
-*Fundación de Formación en Neurociencias - 2025*
+
