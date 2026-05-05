@@ -40,6 +40,16 @@ git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
 pip install -r requirements.txt
 ```
 
+## Cómo Usar Este Repositorio
+
+📚 **[Guía para Alumnos](GUIA_ALUMNOS.md)** - Instrucciones completas para trabajar con el curso usando **ChatGPT Plus**, incluyendo:
+- Cómo cargar el repositorio en ChatGPT
+- Flujo de trabajo con VS Code + ChatGPT Plus
+- Ejemplos de prompts para ejercicios
+- Cómo entregar tareas
+
+**Recomendación:** Si tienes ChatGPT Plus, lee primero la guía de alumnos antes de empezar los ejercicios.
+
 ## Nota sobre Archivos Grandes
 
 Las presentaciones de PowerPoint (`.pptx`) no están incluidas en este repositorio debido a restricciones de tamaño de GitHub. Estos materiales se proporcionan por canales alternativos durante el curso.
