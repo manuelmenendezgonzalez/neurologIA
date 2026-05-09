@@ -27,3 +27,8 @@ venv/
 
 # OneDrive
 *.tmp
+
+# Archivos generados y temporales
+*.png
+!**/assets/**/*.png
+scratch/

@@ -48,8 +48,8 @@ El objetivo de este bloque es dominar el flujo:
 **Enunciado:** Redacta un prompt para analizar la disociación entre la fatiga percibida y los resultados en los tests cognitivos del paciente 24. El script debe calcular percentiles y validar si la queja subjetiva tiene base objetiva.
 **Estado:** ✅ Completado (Ver `ejemplo_caso_clinico1.py`).
 
-### Ejercicio 2: Prompt para Evolución Temporal del EDSS
-**Enunciado:** Redacta un prompt para clasificar a los pacientes en "Estables" vs "Progresores" basándose en la evolución de su EDSS y comparar el éxito según el tratamiento.
+### Ejercicio 2: Evolución Temporal del EDSS (Versión Premium)
+**Enunciado:** Redacta un prompt para clasificar a los pacientes en "Estables" vs "Progresores" basándose en la evolución de su EDSS y comparar el éxito según el tratamiento. El script final debe generar una **presentación ejecutiva Premium (.pptx)** con estética Gamma, incluyendo gráficos de distribución y un resumen de hallazgos clínicos.
 **Estado:** ✅ Completado (Ver `ejercicio2_edss_evolucion.py`).
 
 ### Ejercicio 3: Prompt para Correlación Atrofia vs EDSS

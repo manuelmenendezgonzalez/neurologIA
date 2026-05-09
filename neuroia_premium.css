@@ -99,3 +99,48 @@ pre {
     border: 1px solid #2ECC71;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
 }
+
+/* --- EXTENSIONES GAMMA-LIKE --- */
+
+.subtitle {
+    color: #BDC3C7;
+    font-size: 24px;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+section.section {
+    background: #1B2631;
+    text-align: center;
+    justify-content: center;
+}
+
+section.section h1 {
+    color: #F1C40F;
+    border-bottom: none;
+    font-size: 70px;
+}
+
+.takeaway {
+    background: rgba(46, 204, 113, 0.1);
+    border-left: 5px solid #2ECC71;
+    padding: 30px;
+    margin-top: 40px;
+    font-style: italic;
+    color: #2ECC71;
+    font-size: 1.1em;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Ajuste de márgenes para slides de texto limpio */
+section.text-clean {
+    justify-content: flex-start;
+    padding-top: 80px;
+}
