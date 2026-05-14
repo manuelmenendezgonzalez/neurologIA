@@ -1,156 +1,137 @@
-# Guia para Alumnos: Curso NeuroIA
+# Guia para Alumnos: Primeros Pasos con Codex
 
-Esta guia esta pensada para que aprendas a trabajar con Codex o con tu IDE con IA integrada. La idea no es que recibas soluciones cerradas, sino que aprendas a pedir al IDE el tipo de resultado correcto.
+Esta guia esta escrita para medicos que no han usado antes un IDE. No necesitas saber programar, ni saber que es un repositorio, ni instalar cosas manualmente una por una. La idea es que le pidas a Codex que lo haga por ti dentro del IDE.
 
 ---
 
-## 1. Instala el entorno base
+## Objetivo de la sesion
 
-1. Instala Python 3.11, 3.12 o 3.13 en su version estandar.
-2. En Windows, durante la instalacion marca `Add Python to PATH`.
-3. No uses la version free-threaded `python3.13t.exe`.
-4. Instala Quarto aparte desde [quarto.org](https://quarto.org/docs/download/).
+No vamos a aprender a programar.
 
-## 2. Instala dependencias del curso
+Vamos a aprender a:
 
-Abre una terminal en la carpeta raiz del repositorio y ejecuta:
+- abrir un IDE
+- pedir bien a Codex lo que queremos
+- dejar que Codex prepare el entorno
+- ejecutar ejercicios clinicos
+- revisar si el resultado tiene sentido medico
 
-```bash
-pip install -r requirements.txt
-python check_env.py
-```
+## 1. Abre el IDE
 
-Si `check_env.py` termina en `READY`, el entorno esta preparado.
+Abre tu IDE con IA integrada, por ejemplo Codex, Windsurf o equivalente.
 
-## 3. Flujo minimo para el set de Alzheimer
+No crees archivos a mano. No abras terminales por tu cuenta salvo que el IDE te las abra automaticamente.
 
-La secuencia correcta es:
+## 2. Primera instruccion que debes darle a Codex
 
-1. Generar o regenerar la cohorte:
-
-```bash
-python Set_Alzheimer\Soluciones_y_Ejemplos\generar_datos_alzheimer.py
-```
-
-2. Trabajar siempre sobre:
-
-- `Set_Alzheimer/base_datos_alzheimer.csv`
-- `Set_Alzheimer/alzheimer_utils.py`
-- `Set_Alzheimer/preguntas_ejercicios_ALZ.md`
-
-3. Usar `load_and_clean_data()` desde `alzheimer_utils.py` en lugar de leer el CSV a mano.
-
-Esto es importante porque `alzheimer_utils.py` ya crea variables derivadas comunes para todos los ejercicios:
-
-- `Amyloid_Pos`
-- `Tau_Pos`
-- `Neurodeg_Pos`
-- `ATN_Perfil`
-- `Declive_MMSE_Anual`
-- `Cambio_CDRSB_Anual`
-- `Estado_Progresion`
-- `Candidato_Antiamiloide`
-
-## 4. Como pedir al IDE la bibliografia automatica
-
-No debes construir la bibliografia a mano. Debes pedirselo al IDE.
-
-Prompt recomendado:
+Nada mas abrir el IDE, copia y pega esto:
 
 ```text
-Busca de forma automatica 12-20 referencias reales y relevantes para la Introduccion y la Discusion del articulo sobre enfermedad de Alzheimer. Usa PubMed, Crossref u OpenAlex con herramientas Python si lo necesitas. Genera o actualiza references.bib y redacta despues la Introduccion y la Discusion usando solo esas referencias y citacion Quarto [@clave]. No inventes citas.
+Crea en mi equipo un directorio llamado "Curso NeuroIA" y trabaja desde ahi. Quiero que prepares todo el entorno desde cero para este curso. Antes de hacer cambios, dime en 3-5 lineas que pasos vas a seguir.
 ```
 
-Prompt reforzado para controlar el tono final:
+## 3. Segunda instruccion: que lea los documentos correctos
+
+Cuando Codex te confirme que ya esta trabajando en la carpeta `Curso NeuroIA`, copia y pega esto:
 
 ```text
-El resultado final debe parecer un paper cientifico real. No menciones que esto es un set, un ejercicio, un curso, una presentacion, una diapositiva, un alumno o un profesor. En Resultados y Conclusiones habla solo de hallazgos clinicos y cientificos.
+Lee los documentos principales del curso para orientarte antes de hacer nada mas: GUIA_ALUMNOS.md, README.md, requirements.txt, check_env.py, Set_Alzheimer/README.md y Set_Alzheimer/preguntas_ejercicios_ALZ.md. Despues instala lo necesario y deja el entorno listo para trabajar.
 ```
 
-Reglas importantes:
+## 4. Tercera instruccion: que prepare el entorno por ti
 
-- El IDE debe citar solo referencias presentes en `references.bib`.
-- La `Introduccion` y la `Discusion` no deben inventar bibliografia.
-- Si falta una referencia clave, el IDE debe ampliar la busqueda y regenerar `references.bib`.
-- Si el IDE necesita automatizar la busqueda, debe crear sus propios scripts auxiliares.
-
-## 5. Regla clave entre Ejercicio 2 y Ejercicio 17
-
-En el bloque de Alzheimer, el `Ejercicio 2` y el `Ejercicio 17` estan ligados.
-
-- El `Ejercicio 2` genera una presentacion con apartados fijos.
-- El `Ejercicio 17` debe reutilizar esos mismos apartados en el mismo orden.
-- La presentacion es el esquema.
-- El articulo es el desarrollo extenso y coherente de ese esquema.
-- El paper final no puede hablar del curso, del set, del ejercicio, del profesor, del alumno ni del propio flujo de trabajo.
-
-## 6. Que debes pedirle al IDE para el articulo
-
-Prompt recomendado para el manuscrito:
+Ahora copia y pega esto:
 
 ```text
-Redacta el articulo como un paper cientifico realista y clinicamente plausible. Usa los apartados del Ejercicio 2 como estructura. La Introduccion y la Discusion deben estar sustentadas en referencias reales. Los Resultados deben limitarse a describir hallazgos del analisis. La Discusion debe comparar esos hallazgos con la literatura. Elimina cualquier comentario metadocente o cualquier referencia a set, ejercicio, curso, presentacion, alumno o profesor.
+Instala todas las dependencias del curso y ejecuta la comprobacion del entorno con python check_env.py. Si encuentras errores, resuelvelos tu y vuelve a ejecutar la comprobacion hasta que el entorno quede listo. Despues dime solo si el estado final es READY o que problema concreto queda pendiente.
 ```
 
-## 7. Ejercicios que debes ejecutar en orden
+Tu objetivo aqui no es entender la instalacion. Tu objetivo es aprender a pedirle al IDE que la resuelva.
 
-Bloque 1:
+## 5. Cuarta instruccion: preparar el set Alzheimer
 
-```bash
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio1_caso_clinico_alzheimer.py
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio2_progresion_alzheimer.py
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio3_regresion_multimodal.py
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio4_clasificador_amiloide.py
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio5_clustering_alzheimer.py
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio6_efectividad_vida_real.py
+Cuando Codex te diga que el entorno esta listo, copia y pega esto:
+
+```text
+Prepara el set de Alzheimer para trabajar. Genera o regenera la cohorte si hace falta, revisa que existe el archivo base_datos_alzheimer.csv y usa siempre alzheimer_utils.py para cargar y limpiar los datos. No programes nada nuevo todavia; solo deja todo listo y dime que ya puedo empezar con los ejercicios.
 ```
 
-Bloque 2:
+## 6. Como empezar un ejercicio
 
-```bash
-python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio16_auditoria_alzheimer_premium.py
+No le pidas codigo suelto. Pidele a Codex que haga el ejercicio de principio a fin.
+
+### Para el primer ejercicio
+
+Usa este prompt:
+
+```text
+Resuelve el Ejercicio 1 del set Alzheimer como si fueras un alumno. Lee primero el enunciado en Set_Alzheimer/preguntas_ejercicios_ALZ.md, usa alzheimer_utils.py para cargar el dataset y ejecuta el analisis completo. No me des solo codigo: haz el trabajo, ejecútalo y resume el resultado con criterio clinico.
 ```
 
-Bloque 3:
+### Para cualquier ejercicio posterior
 
-```bash
-quarto render Set_Alzheimer\Soluciones_y_Ejemplos\articulo_neuroia_alzheimer.qmd
+Usa este esquema:
+
+```text
+Resuelve el Ejercicio [numero] del set Alzheimer como si fueras un alumno. Lee el enunciado, decide que archivos necesitas, ejecuta el trabajo completo en el IDE y ensename solo el resultado final y la interpretacion clinica.
 ```
 
-## 8. Nota importante para Quarto en Windows
+## 7. Como trabajar el articulo sin programar
 
-Si Quarto intenta usar `python3.13t.exe` o falla al ejecutar celdas Python, fuerza el interprete correcto:
+Cuando llegues al articulo, no debes redactarlo ni buscar bibliografia a mano. Debes pedirselo a Codex.
 
-```powershell
-$env:QUARTO_PYTHON="C:\Users\TU_USUARIO\AppData\Local\Programs\Python\Python313\python.exe"
-quarto render Set_Alzheimer\Soluciones_y_Ejemplos\articulo_neuroia_alzheimer.qmd
+Usa este prompt:
+
+```text
+Redacta el articulo del Ejercicio 17 como un paper cientifico realista y clinicamente plausible. Usa la estructura del Ejercicio 2. Busca referencias reales para Introduccion y Discusion, actualiza references.bib si hace falta y cita solo con formato Quarto [@clave]. No menciones curso, ejercicio, set, presentacion, diapositivas, alumno ni profesor. En Resultados y Conclusiones habla solo de hallazgos clinicos y cientificos.
 ```
 
-## 9. Como evitar errores frecuentes en el manuscrito
+## 8. Como corregir un mal resultado
 
-- No construyas tablas muy anchas para PDF.
-- Si una tabla tiene demasiadas columnas, reduce variables o dividela en dos tablas.
-- No copies bullets tal cual al articulo: conviertelos en parrafos con contexto, interpretacion y limitaciones.
-- La `Introduccion` y la `Discusion` deben incluir citas Quarto reales tipo `[@jack2018]`.
-- El paper final no debe contener frases metadocentes ni comentarios sobre la calidad del set o del ejercicio.
+Si el resultado no te convence, no digas solo “esta mal”. Dale a Codex una correccion concreta.
 
-## 10. Resultado esperado del set Alzheimer
+Ejemplos:
 
-Si todo esta bien instalado, deberias poder generar al menos estos archivos:
-
-- `Set_Alzheimer/Ejercicio2_Progresion_Alzheimer.pptx`
-- `Set_Alzheimer/Auditoria_Clinica_Alzheimer.pptx`
-- `Set_Alzheimer/Soluciones_y_Ejemplos/articulo_neuroia_alzheimer.pdf`
-
-## 11. Si algo falla
-
-1. Reejecuta:
-
-```bash
-python check_env.py
+```text
+La interpretacion clinica no me convence. Revisa si los hallazgos tienen sentido para enfermedad de Alzheimer temprana y corrige el analisis.
 ```
 
-2. Comprueba que estas usando el repo correcto y que existe `Set_Alzheimer`.
-3. Si el error es de Quarto, revisa primero `QUARTO_PYTHON`.
-4. Si el error es de codigo, vuelve a cargar datos usando `load_and_clean_data()`.
-5. Si el error es de bibliografia, pide al IDE que revise su propia estrategia de busqueda, conectividad y formato de citas.
+```text
+El texto suena a instrucciones de curso y no a paper cientifico. Reescribelo con tono de articulo biomedico real.
+```
+
+```text
+La tabla es demasiado ancha para un PDF. Simplificala o dividela en dos tablas mas legibles.
+```
+
+## 9. Que no debes hacer
+
+- No programes a mano salvo que el profesor te lo pida expresamente.
+- No abras archivos para editarlos tu mismo si Codex puede hacerlo.
+- No copies y pegues bibliografia inventada.
+- No aceptes un resultado solo porque “ha salido”.
+- No asumas que un grafico es correcto si clinicamente no tiene sentido.
+
+## 10. Que si debes hacer
+
+- Pedir instrucciones claras.
+- Dejar que Codex ejecute el trabajo.
+- Revisar si el resultado tiene sentido neurologico.
+- Corregir el prompt si la salida no es buena.
+- Pedir una segunda version si el tono, la clinica o la estructura no son adecuados.
+
+## 11. Frase clave de trabajo
+
+La forma correcta de trabajar en este curso es:
+
+```text
+No quiero solo codigo. Quiero que hagas el trabajo completo en el IDE, lo ejecutes y me devuelvas un resultado final clinicamente coherente.
+```
+
+## 12. Si algo falla al principio
+
+Si ni siquiera puedes arrancar, usa este prompt:
+
+```text
+No tengo conocimientos tecnicos. Quiero que prepares desde cero la carpeta Curso NeuroIA, leas los documentos del curso, instales todo lo necesario, ejecutes python check_env.py y soluciones cualquier problema inicial. Explicame solo lo imprescindible y dime cuando pueda empezar con el Ejercicio 1.
+```
