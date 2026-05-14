@@ -1,6 +1,6 @@
 # NeuroIA Alzheimer
 
-Set analogo al bloque de EMRR, adaptado a enfermedad de Alzheimer y otras demencias degenerativas con fenotipo amiloide.
+Set de ejercicios sobre la enfermedad de Alzheimer y otras demencias.
 
 ## Contenido
 
