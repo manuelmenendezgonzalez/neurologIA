@@ -4,6 +4,16 @@ Esta guia esta escrita para medicos que no han usado antes un IDE. No necesitas 
 
 ---
 
+## URL del repositorio del curso
+
+El repositorio publico que debes clonar es:
+
+`https://github.com/manuelmenendezgonzalez/neurologIA.git`
+
+Si no sabes que decirle al IDE, usa literalmente esa URL en tu primera instruccion.
+
+---
+
 ## Objetivo de la sesion
 
 No vamos a aprender a programar.

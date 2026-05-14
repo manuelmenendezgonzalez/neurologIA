@@ -1,95 +1,108 @@
-# NeuroIA - Curso de Inteligencia Artificial para Neurólogos
+# NeuroIA - Curso de Inteligencia Artificial para Neurologos
 
-Repositorio de materiales y recursos del curso de formación en Inteligencia Artificial aplicada a la Neurología, dirigido a profesionales neurológicos que desean integrar herramientas de IA en su práctica clínica e investigación.
+Repositorio de materiales y recursos del curso de formacion en Inteligencia Artificial aplicada a la Neurologia, dirigido a profesionales neurologicos que desean integrar herramientas de IA en su practica clinica e investigacion.
 
-## Descripción del Curso
+## Repositorio del curso
 
-Este curso proporciona una introducción práctica a los conceptos fundamentales de la inteligencia artificial y su aplicación específica en el campo de la neurología. Los participantes aprenderán a utilizar herramientas de IA para análisis de datos clínicos, generación de informes, auditoría de bases de datos y optimización de flujos de trabajo neurológicos.
+URL publica para clonar el curso:
 
-## Contenidos del Repositorio
+`https://github.com/manuelmenendezgonzalez/neurologIA.git`
 
-### Archivos Principales
-- **Ejercicios prácticos**: Scripts de Python para análisis de datos neurológicos
-- **Base de datos de ejemplo**: Dataset de Esclerosis Múltiple Remitente Recurrente (EMRR) para prácticas
-- **Documentación**: Guías y preguntas de ejercicios sobre casos clínicos
-- **Utilidades**: Funciones auxiliares para procesamiento de datos neurológicos
+## Descripcion del curso
+
+Este curso proporciona una introduccion practica a los conceptos fundamentales de la inteligencia artificial y su aplicacion especifica en neurologia. Los participantes aprenderan a utilizar herramientas de IA para analisis de datos clinicos, generacion de informes, auditoria de bases de datos y optimizacion de flujos de trabajo neurologicos.
+
+## Contenidos del repositorio
+
+### Archivos principales
+
+- Ejercicios practicos: scripts de Python para analisis de datos neurologicos
+- Bases de datos de ejemplo: cohortes para practicas
+- Documentacion: guias y preguntas de ejercicios sobre casos clinicos
+- Utilidades: funciones auxiliares para procesamiento de datos neurologicos
 
 ### Estructura
-```
+
+```text
 .
-├── Soluciones_y_Ejemplos/   # Ejemplos resueltos y material complementario
-├── base_datos_emrr.csv      # Dataset de pacientes EMRR
-├── neuro_utils.py           # Utilidades para procesamiento neurológico
-├── ejercicio16_auditoria_premium.py  # Script de auditoría clínica
-└── requirements.txt         # Dependencias de Python
+|-- Soluciones_y_Ejemplos/   # Ejemplos resueltos y material complementario
+|-- Set_Alzheimer/           # Set de ejercicios de Alzheimer
+|-- base_datos_emrr.csv      # Dataset de pacientes EMRR
+|-- neuro_utils.py           # Utilidades para procesamiento neurologico
+|-- requirements.txt         # Dependencias de Python
+|-- check_env.py             # Comprobacion automatica del entorno
 ```
 
-## Requisitos Técnicos
+## Requisitos tecnicos
 
 - Python 3.8 o superior
-- Bibliotecas: pandas, matplotlib, numpy (ver `requirements.txt`)
-- Entorno de desarrollo: VS Code, PyCharm, **Windsurf** o **Antigravity** (gratuitos con IA integrada) o similar
+- Dependencias Python en `requirements.txt`
+- Un IDE con IA integrada o equivalente
+- Quarto para renderizar archivos `.qmd`
 
-## Instalación
+## Instalacion
 
 ```bash
 # Clonar el repositorio
 git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
 
+# Entrar en la carpeta
+cd neurologIA
+
 # Instalar dependencias
 pip install -r requirements.txt
+
+# Validar entorno
+python check_env.py
 ```
 
-### Dependencia de sistema para Quarto
+## Dependencia de sistema para Quarto
 
-`Quarto` no es una librería Python del `requirements.txt`, sino una herramienta externa de línea de comandos para renderizar archivos `.qmd` a PDF, HTML o Word.
+`Quarto` no es una libreria Python del `requirements.txt`, sino una herramienta externa de linea de comandos para renderizar archivos `.qmd` a PDF, HTML o Word.
 
-Instalación oficial:
+Instalacion oficial:
+
 - [Descargar Quarto](https://quarto.org/docs/download/)
 
-Verificación recomendada:
+Verificacion recomendada:
 
 ```bash
 quarto check
 quarto check jupyter
 ```
 
-## Cómo Usar Este Repositorio
+## Como usar este repositorio
 
-📚 **[Guía para Alumnos](GUIA_ALUMNOS.md)** - Instrucciones completas para trabajar con el curso usando **ChatGPT Plus** y un **IDE local** (VS Code o **Windsurf**, gratuito con IA integrada), incluyendo:
-- Cómo acceder al Proyecto de ChatGPT compartido
-- Flujo de trabajo con IDE + ChatGPT Proyecto
-- Ejemplos de prompts para ejercicios
-- Cómo entregar tareas
+La guia principal para los alumnos es:
 
-**Recomendación:** Lee la guía de alumnos antes de empezar los ejercicios.
+- [GUIA_ALUMNOS.md](GUIA_ALUMNOS.md)
 
-### Comprobación rápida del entorno
+La recomendacion es leer primero esa guia y despues trabajar cada bloque con ayuda del IDE.
 
-Antes de empezar, puedes validar que Python, Jupyter, Quarto y las dependencias del curso están disponibles con:
+## Comprobacion rapida del entorno
+
+Antes de empezar, puedes validar que Python, Jupyter, Quarto y las dependencias del curso estan disponibles con:
 
 ```bash
 python check_env.py
 ```
 
-Si Quarto en Windows intenta usar `python3.13t.exe` y falla al renderizar, fuerza el intérprete estándar:
+Si Quarto en Windows intenta usar `python3.13t.exe` y falla al renderizar, fuerza el interprete estandar:
 
-```bash
+```powershell
 $env:QUARTO_PYTHON="C:\Users\TU_USUARIO\AppData\Local\Programs\Python\Python313\python.exe"
 quarto render archivo.qmd
 ```
 
-## Nota sobre Archivos Grandes
+## Nota sobre archivos grandes
 
-Las presentaciones de PowerPoint (`.pptx`) no están incluidas en este repositorio debido a restricciones de tamaño de GitHub. Estos materiales se proporcionan por canales alternativos durante el curso.
+Las presentaciones de PowerPoint (`.pptx`) no estan incluidas en el repositorio porque GitHub penaliza archivos binarios grandes. El codigo que las genera si forma parte del material del curso.
 
 ## Dirigido a
 
-- Neurólogos 
-- Residentes de Neurología
+- Neurologos
+- Residentes de Neurologia
 
 ## Autor
 
-**Manuel Menéndez González**
-
----
+**Manuel Menendez Gonzalez**
