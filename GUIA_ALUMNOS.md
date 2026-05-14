@@ -64,7 +64,17 @@ Instala todas las dependencias del curso y ejecuta la comprobacion del entorno c
 
 Tu objetivo aqui no es entender la instalacion. Tu objetivo es aprender a pedirle al IDE que la resuelva.
 
-## 5. Cuarta instruccion: preparar el set Alzheimer
+## 5. Cuarta instruccion: localizar y leer los ejercicios de Alzheimer
+
+Cuando Codex te diga que el entorno esta listo, copia y pega esto:
+
+```text
+Localiza el documento de ejercicios del set Alzheimer, leelo completo y dime exactamente en que archivo esta. Quiero que me indiques tambien que abra en el IDE tanto GUIA_ALUMNOS.md como ese documento de ejercicios para poder leer los dos antes de seguir.
+```
+
+No sigas a ciegas. En este punto debes tener abiertos en el IDE tanto la guia general como el documento de ejercicios de Alzheimer.
+
+## 6. Quinta instruccion: preparar el set Alzheimer
 
 Cuando Codex te diga que el entorno esta listo, copia y pega esto:
 
@@ -72,7 +82,7 @@ Cuando Codex te diga que el entorno esta listo, copia y pega esto:
 Prepara el set de Alzheimer para trabajar. Genera o regenera la cohorte si hace falta, revisa que existe el archivo base_datos_alzheimer.csv y usa siempre alzheimer_utils.py para cargar y limpiar los datos. No programes nada nuevo todavia; solo deja todo listo y dime que ya puedo empezar con los ejercicios.
 ```
 
-## 6. Como empezar un ejercicio
+## 7. Como empezar un ejercicio
 
 No le pidas codigo suelto. Pidele a Codex que haga el ejercicio de principio a fin.
 
@@ -92,7 +102,7 @@ Usa este esquema:
 Resuelve el Ejercicio [numero] del set Alzheimer como si fueras un alumno. Lee el enunciado, decide que archivos necesitas, ejecuta el trabajo completo en el IDE y ensename solo el resultado final y la interpretacion clinica.
 ```
 
-## 7. Como trabajar el articulo sin programar
+## 8. Como trabajar el articulo sin programar
 
 Cuando llegues al articulo, no debes redactarlo ni buscar bibliografia a mano. Debes pedirselo a Codex.
 
