@@ -1,6 +1,6 @@
 # Guia para Alumnos: Primeros Pasos con Codex
 
-Esta guia esta escrita para medicos que no han usado antes un IDE. No necesitas saber programar, ni saber que es un repositorio, ni instalar cosas manualmente una por una. La idea es que le pidas a Codex que lo haga por ti dentro del IDE.
+Esta guia esta escrita para medicos que no han usado antes un IDE. No necesitas saber programar, ni saber que es un repositorio, ni instalar cosas manualmente una por una. La idea es que le pidas a Codex que lo haga por ti dentro del IDE a partir del repositorio publico del curso.
 
 ---
 
@@ -27,12 +27,18 @@ No crees archivos a mano. No abras terminales por tu cuenta salvo que el IDE te 
 Nada mas abrir el IDE, copia y pega esto:
 
 ```text
-Crea en mi equipo un directorio llamado "Curso NeuroIA" y trabaja desde ahi. Quiero que prepares todo el entorno desde cero para este curso. Antes de hacer cambios, dime en 3-5 lineas que pasos vas a seguir.
+Clona en mi equipo el repositorio publico del curso https://github.com/manuelmenendezgonzalez/neurologIA.git dentro de un directorio local llamado "Curso NeuroIA" y trabaja desde ahi. Quiero que prepares todo el entorno desde cero para este curso. Antes de hacer cambios, dime en 3-5 lineas que pasos vas a seguir.
+```
+
+Si el IDE necesita una formulacion todavia mas simple, usa esta alternativa:
+
+```text
+Descarga en mi ordenador el repositorio publico del curso desde https://github.com/manuelmenendezgonzalez/neurologIA.git dentro de una carpeta llamada "Curso NeuroIA". Despues trabaja desde esa carpeta y prepara todo para empezar.
 ```
 
 ## 3. Segunda instruccion: que lea los documentos correctos
 
-Cuando Codex te confirme que ya esta trabajando en la carpeta `Curso NeuroIA`, copia y pega esto:
+Cuando Codex te confirme que ya ha clonado el repositorio y esta trabajando en la carpeta `Curso NeuroIA`, copia y pega esto:
 
 ```text
 Lee los documentos principales del curso para orientarte antes de hacer nada mas: GUIA_ALUMNOS.md, README.md, requirements.txt, check_env.py, Set_Alzheimer/README.md y Set_Alzheimer/preguntas_ejercicios_ALZ.md. Despues instala lo necesario y deja el entorno listo para trabajar.
@@ -133,5 +139,5 @@ No quiero solo codigo. Quiero que hagas el trabajo completo en el IDE, lo ejecut
 Si ni siquiera puedes arrancar, usa este prompt:
 
 ```text
-No tengo conocimientos tecnicos. Quiero que prepares desde cero la carpeta Curso NeuroIA, leas los documentos del curso, instales todo lo necesario, ejecutes python check_env.py y soluciones cualquier problema inicial. Explicame solo lo imprescindible y dime cuando pueda empezar con el Ejercicio 1.
+No tengo conocimientos tecnicos. Quiero que clones en mi ordenador el repositorio publico https://github.com/manuelmenendezgonzalez/neurologIA.git dentro de una carpeta llamada Curso NeuroIA, leas los documentos del curso, instales todo lo necesario, ejecutes python check_env.py y soluciones cualquier problema inicial. Explicame solo lo imprescindible y dime cuando pueda empezar con el Ejercicio 1.
 ```
