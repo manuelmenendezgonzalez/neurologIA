@@ -1,27 +1,47 @@
+# Core data stack
 pandas
 numpy
+scipy
+statsmodels
+scikit-learn
+imbalanced-learn
+joblib
+
+# Visualization
 matplotlib
 seaborn
 plotly
-scikit-learn
-scipy
-statsmodels
+kaleido
+
+# Notebooks and rendering support
 jupyter
+ipykernel
 nbconvert
+nbformat
+jsonschema
+referencing
+rpds-py
 papermill
-streamlit
-joblib
-pyyaml
-imbalanced-learn
+
+# Reports, slides and spreadsheets
 python-pptx
 fpdf2
 xlsxwriter
 openpyxl
 tabulate
 jinja2
-# Investigación Bibliográfica Automatizada:
+
+# Apps and utilities
+streamlit
+pyyaml
+
+# Automated literature work
 pyalex
+biopython
+habanero
 bibtexparser
 langchain
-# Quarto (requiere instalación de sistema: quarto.org)
-kaleido
+
+# Quarto is NOT a Python library and is not installed with pip.
+# Install it separately from:
+# https://quarto.org/docs/download/

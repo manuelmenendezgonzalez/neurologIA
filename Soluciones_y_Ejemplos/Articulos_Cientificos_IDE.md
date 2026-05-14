@@ -1,5 +1,13 @@
 # Redactar Artículos Científicos desde el IDE
 
+Convención para las plantillas del curso:
+
+```yaml
+author: "Autores:"
+```
+
+Usa ese encabezado por defecto en los `.qmd` del curso en lugar de nombres institucionales fijos.
+
 Aquí ya estás tocando algo más serio que "AI tools": estás hablando de un **research writing system reproducible desde IDE**. Eso no es una app; es un stack.
 
 Te lo organizo sin humo y con piezas reales que puedes combinar.

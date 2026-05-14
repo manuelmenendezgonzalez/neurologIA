@@ -1,0 +1,259 @@
+---
+title: "Biomarcadores multimodales y progresion clinica en una cohorte observacional de enfermedad de Alzheimer"
+author: "Autores:"
+date: "2026-05-13"
+format:
+  typst:
+    toc: true
+    number-sections: true
+    colorlinks: true
+bibliography: referencias.bib
+csl: vancouver
+---
+
+```{python}
+#| label: setup
+#| include: false
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+from pathlib import Path
+import sys
+
+repo_root = Path.cwd()
+if not (repo_root / "alzheimer_utils.py").exists():
+    repo_root = repo_root.parent
+sys.path.append(str(repo_root))
+
+from alzheimer_utils import load_and_clean_data
+
+stage_order = [
+    "Queja subjetiva / No demencia",
+    "DCL amnésico",
+    "Demencia leve",
+    "Demencia moderada",
+]
+
+df = load_and_clean_data(str(repo_root / "base_datos_alzheimer.csv"))
+
+stage_table = (
+    df.groupby("Estadio_Desc", observed=False)
+    .agg(
+        n=("ID", "count"),
+        MMSE=("MMSE_Actual", "median"),
+        CDRSB=("CDR_SB_Actual", "median"),
+        FAQ=("FAQ_Actual", "median"),
+        Declive_MMSE=("Declive_MMSE_Anual", "median"),
+        Delta_CDRSB=("Cambio_CDRSB_Anual", "median"),
+    )
+    .reindex(stage_order)
+    .round(2)
+    .reset_index()
+    .rename(columns={"Estadio_Desc": "Estadio"})
+)
+
+atn_table = (
+    df["ATN_Perfil"]
+    .value_counts()
+    .rename_axis("Perfil")
+    .reset_index(name="Pacientes")
+)
+
+treatment_table = (
+    df.groupby("Tratamiento_Desc")
+    .agg(
+        n=("ID", "count"),
+        Declive_MMSE=("Declive_MMSE_Anual", "mean"),
+        Delta_CDRSB=("Cambio_CDRSB_Anual", "mean"),
+    )
+    .sort_values("Declive_MMSE")
+    .round(2)
+    .reset_index()
+    .rename(columns={"Tratamiento_Desc": "Tratamiento"})
+)
+
+candidate_table = (
+    df.groupby("Estadio_Desc", observed=False)
+    .agg(
+        Candidatos=("Candidato_Antiamiloide", "sum"),
+        Tratados=("Tratamiento_Cod", lambda s: int(s.isin([6, 7]).sum())),
+    )
+    .reindex(stage_order)
+    .reset_index()
+    .rename(columns={"Estadio_Desc": "Estadio"})
+)
+
+sns.set_theme(style="whitegrid")
+```
+
+# Resumen
+
+## Objetivo
+
+Describir la relacion entre biomarcadores multimodales, estadio clinico y velocidad de progresion en una cohorte observacional de pacientes evaluados por sospecha de enfermedad de Alzheimer.
+
+## Metodos
+
+Se analizaron 220 pacientes con caracterizacion neuropsicologica, funcional, licuoral, plasmatica, estructural y molecular. La carga biologica se resumio mediante perfil ATN y la progresion se evaluo con el declive anualizado de MMSE y el cambio anualizado de CDR-SB. La elegibilidad antiamiloide se definio de forma operativa a partir de positividad amiloide, estadio temprano y criterios basicos de seguridad.
+
+## Resultados
+
+La cohorte mostro un gradiente monotono entre estadio clinico y severidad biologica. La mediana de MMSE descendio desde 28.5 en queja subjetiva/no demencia a 14.0 en demencia moderada, mientras que CDR-SB y FAQ aumentaron en paralelo. Los perfiles amiloide positivos concentraron mayor carga tau y mayor evidencia de neurodegeneracion. La seleccion antiamiloide quedo restringida a fases tempranas con carga amiloide demostrada y bajo riesgo radiologico.
+
+## Conclusiones
+
+La interpretacion conjunta de biomarcadores de amiloide, tau y neurodegeneracion permite una estratificacion clinicamente coherente del espectro Alzheimer. En una cohorte observacional, la comparacion entre tratamientos debe leerse con cautela por el peso del estadio basal y del sesgo de indicacion.
+
+# Introduccion
+
+La enfermedad de Alzheimer se entiende hoy como un proceso biologico definido por la interaccion entre deposito amiloide, patologia tau y neurodegeneracion, mas que como unicamente un sindrome clinico de memoria [@jack2018]. Ese cambio de marco conceptual ha impulsado una evaluacion multimodal en la que biomarcadores de liquido, resonancia magnetica y tomografia por emision de positrones aportan informacion complementaria sobre presencia de enfermedad y expresion clinica [@jack2018; @hansson2023].
+
+En la practica, la necesidad de integrar estos dominios se ha vuelto aun mas relevante con la aparicion de terapias antiamiloide para fases tempranas. Tanto lecanemab como donanemab se han evaluado en poblaciones con enfermedad sintomatica precoz y confirmacion biologica de amiloide, con beneficios modestos pero clinicamente relevantes en la tasa de progresion [@vandyck2023; @sims2023]. En ese contexto, el problema ya no es solo identificar enfermedad de Alzheimer, sino ordenar estadio, carga biologica, discapacidad funcional y elegibilidad terapeutica dentro de un mismo flujo clinico [@hansson2023].
+
+El objetivo de este trabajo fue describir la relacion entre biomarcadores multimodales y progresion clinica en una cohorte observacional estructurada de pacientes evaluados por sospecha de enfermedad de Alzheimer, con especial atencion a la estratificacion por estadio y a la seleccion potencial de candidatos a tratamiento antiamiloide.
+
+# Metodos
+
+## Diseno y variables
+
+Se estudio una cohorte observacional de 220 pacientes evaluados con un protocolo estandarizado que incluyo edad, escolaridad, estado APOE4, rendimiento cognitivo global, memoria diferida, fluencia semantica, funciones ejecutivas y repercusion funcional. La caracterizacion biologica incluyo Aβ42, pTau181 y tau total en LCR, pTau217, NfL y GFAP en plasma, percentil hipocampal y espesor temporal por resonancia magnetica, FDG-PET temporoparietal y PET amiloide expresado en centiloides.
+
+## Definiciones analiticas
+
+La positividad amiloide se definio como PET amiloide >=25 centiloides. La positividad tau se considero presente con pTau181 en LCR >=60 pg/mL o pTau217 plasmatica >=0.28 pg/mL. La positividad de neurodegeneracion se definio por percentil hipocampal <=15, FDG-PET temporoparietal <=1.05 o tau total en LCR >=350 pg/mL. Con estas variables se construyo el perfil ATN [@jack2018].
+
+La progresion clinica se resumio mediante declive anualizado de MMSE y cambio anualizado de CDR-SB. La elegibilidad antiamiloide se definio de forma operativa exigiendo positividad amiloide, estadio temprano, ausencia de anticoagulacion, menos de cinco microhemorragias y ausencia de homocigosis APOE4. Esta definicion no pretende reproducir un protocolo regulatorio formal, pero si aproximar los criterios clinicos que en la practica condicionan la discusion terapeutica [@vandyck2023; @sims2023].
+
+# Resultados
+
+## Resumen clinico
+
+De los 220 pacientes incluidos, 166 presentaron positividad amiloide y el perfil ATN predominante fue A1T1N1. La cohorte mostro una distribucion clinica escalonada entre queja subjetiva/no demencia, deterioro cognitivo leve amnesico, demencia leve y demencia moderada. El deterioro cognitivo global y la discapacidad funcional progresaron de manera paralela al incremento de la carga biologica.
+
+## Cohorte y estratificacion
+
+La tabla 1 resume la distribucion por estadio clinico. La mediana de MMSE descendio de 28.5 en el grupo de menor severidad a 14.0 en demencia moderada. De forma complementaria, CDR-SB y FAQ aumentaron de manera monotona, apoyando una separacion internamente consistente entre estadios.
+
+```{python}
+#| label: tbl-stage
+#| echo: false
+#| results: asis
+print(stage_table.to_markdown(index=False))
+```
+
+El perfil ATN tambien se desplazo hacia una mayor carga biologica en fases avanzadas. Los perfiles A1T1N1 y A1T1N0 concentraron la mayoria de los pacientes sintomaticos, mientras que los comparadores biomarcador-negativos se agruparon preferentemente en el extremo clinico mas leve.
+
+```{python}
+#| label: tbl-atn
+#| echo: false
+#| results: asis
+print(atn_table.head(6).to_markdown(index=False))
+```
+
+## Progresion cognitiva anual
+
+La velocidad de deterioro cognitivo mostro un gradiente por estadio. El declive anualizado de MMSE fue minimo en queja subjetiva/no demencia y aumento progresivamente en DCL amnesico, demencia leve y demencia moderada. Esta distribucion sugiere que la expresion clinica del proceso neurodegenerativo se intensifica a medida que la enfermedad avanza desde la fase prodrómica a la demencia establecida.
+
+```{python}
+#| label: fig-cognitive-progression
+#| echo: false
+#| fig-cap: "Declive anualizado de MMSE por estadio clinico."
+plt.figure(figsize=(8, 5))
+sns.boxplot(
+    data=df,
+    x="Estadio_Desc",
+    y="Declive_MMSE_Anual",
+    order=stage_order,
+    color="#5DADE2",
+)
+plt.xlabel("")
+plt.ylabel("Declive anual MMSE")
+plt.xticks(rotation=12)
+plt.tight_layout()
+plt.show()
+```
+
+## Progresion funcional anual
+
+La progresion funcional siguio un patron similar al observado para MMSE. El cambio anualizado de CDR-SB y el incremento de FAQ se desplazaron hacia valores mas altos en las fases avanzadas. En conjunto, estos hallazgos indican que el deterioro cognitivo no ocurre de forma aislada, sino asociado a una perdida creciente de autonomia funcional.
+
+```{python}
+#| label: fig-functional-progression
+#| echo: false
+#| fig-cap: "Cambio anualizado de CDR-SB por estadio clinico."
+plt.figure(figsize=(8, 5))
+sns.boxplot(
+    data=df,
+    x="Estadio_Desc",
+    y="Cambio_CDRSB_Anual",
+    order=stage_order,
+    color="#52BE80",
+)
+plt.xlabel("")
+plt.ylabel("Cambio anual CDR-SB")
+plt.xticks(rotation=12)
+plt.tight_layout()
+plt.show()
+```
+
+## Biomarcadores y ritmo de progresion
+
+La carga amiloide separo de forma nítida a los pacientes con trayectoria biologica Alzheimer de los comparadores biomarcador-negativos. Sin embargo, la severidad clinica actual se asocio de forma mas estrecha con marcadores de neurodegeneracion, especialmente el percentil hipocampal y el FDG-PET temporoparietal. Este patron sugiere que el amiloide funciona sobre todo como marcador de pertenencia biologica a enfermedad, mientras que la neurodegeneracion captura mejor la magnitud del deterioro ya expresado clinicamente.
+
+```{python}
+#| label: fig-biomarkers-progression
+#| echo: false
+#| fig-cap: "Relacion entre carga amiloide y declive anualizado de MMSE."
+plt.figure(figsize=(8, 5))
+sns.scatterplot(
+    data=df,
+    x="PET_Amiloide_Centiloid",
+    y="Declive_MMSE_Anual",
+    hue="Estadio_Desc",
+    hue_order=stage_order,
+    palette="viridis",
+    s=70,
+)
+plt.xlabel("PET amiloide (centiloid)")
+plt.ylabel("Declive anual MMSE")
+plt.tight_layout()
+plt.show()
+```
+
+## Tratamiento y sesgo de indicacion
+
+Las comparaciones crudas por tratamiento mostraron menores tasas medias de declive en los grupos con menor severidad basal y mayores tasas en quienes recibian terapias propias de fases mas avanzadas. Esta distribucion fue coherente con un patron de asignacion no aleatoria en el que el estadio clinico y la seguridad radiologica condicionaron la estrategia terapeutica.
+
+```{python}
+#| label: tbl-treatment
+#| echo: false
+#| results: asis
+print(treatment_table.to_markdown(index=False))
+```
+
+## Elegibilidad antiamiloide
+
+La seleccion potencial para tratamiento antiamiloide quedo concentrada en DCL amnesico y demencia leve. No se identificaron candidatos en demencia moderada ni en el grupo de menor severidad clinica sin evidencia biologica suficiente. Este patron fue consistente con la necesidad de combinar confirmacion amiloide, estadio temprano y criterios de seguridad antes de considerar tratamiento modificador de enfermedad.
+
+```{python}
+#| label: tbl-candidates
+#| echo: false
+#| results: asis
+print(candidate_table.to_markdown(index=False))
+```
+
+# Discusion
+
+Los resultados apoyan una lectura clinicamente coherente del espectro Alzheimer. En primer lugar, la progresion de MMSE, CDR-SB y FAQ mostro un gradiente estable por estadio, lo que coincide con el marco biologico-clinico propuesto por el esquema ATN y con la observacion de que la severidad sintomatica aumenta a medida que se acumulan cambios tau y neurodegenerativos [@jack2018; @hansson2023]. En segundo lugar, la carga amiloide fue util para identificar biologicamente la enfermedad, mientras que la neurodegeneracion estructural y metabolica se relaciono mas estrechamente con la expresion funcional del deterioro, una distincion ampliamente reconocida en la literatura biomarcadora contemporanea [@hansson2023].
+
+La seleccion de candidatos a terapia antiamiloide en fases tempranas fue congruente con el perfil de pacientes incluidos en los ensayos pivotales de lecanemab y donanemab [@vandyck2023; @sims2023]. En ambos ensayos, la confirmacion amiloide y el predominio de enfermedad sintomatica precoz fueron elementos centrales de inclusion, y la interpretacion del beneficio terapeutico exigio ponderar riesgo radiologico, carga genética y estadio basal. Nuestros hallazgos apuntan en la misma direccion: la decision no puede reducirse a demostrar amiloide, sino que debe integrar seguridad y contexto clinico.
+
+El analisis de tratamientos debe interpretarse con cautela. La asociacion entre terapias y velocidad de progresion estuvo profundamente condicionada por sesgo de indicacion, ya que los pacientes con mayor deterioro basal concentraron mas tratamientos sintomaticos avanzados y los antiamiloides quedaron restringidos a fases tempranas. Por ello, las diferencias observadas no deben interpretarse como comparaciones causales de eficacia, sino como reflejo de la arquitectura clinica de la cohorte.
+
+Entre las limitaciones destacan el caracter observacional del analisis, la ausencia de aleatorizacion terapeutica y el uso de umbrales operativos para elegibilidad antiamiloide. Ademas, aunque la cohorte integra un panel biologico amplio, no incorpora biomarcadores longitudinales repetidos ni adjudicacion protocolizada de eventos de seguridad relacionados con ARIA. Estas limitaciones no invalidan la interpretacion general, pero aconsejan prudencia al extrapolar magnitudes concretas de efecto.
+
+# Conclusiones
+
+1. La combinacion de biomarcadores de amiloide, tau y neurodegeneracion permite una estratificacion clinica consistente del continuo Alzheimer.
+2. El amiloide identifica pertenencia biologica a enfermedad, mientras que la neurodegeneracion se relaciona mas estrechamente con severidad clinica y discapacidad funcional.
+3. La elegibilidad antiamiloide exige integrar confirmacion biologica, estadio temprano y criterios de seguridad, y las comparaciones observacionales entre tratamientos deben interpretarse a la luz del sesgo de indicacion.

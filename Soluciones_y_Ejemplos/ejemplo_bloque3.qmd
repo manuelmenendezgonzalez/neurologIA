@@ -1,6 +1,6 @@
 ---
 title: "Plantilla de Artículo Científico NeuroIA"
-author: "Investigador"
+author: "Autores:"
 format: html
 ---
 

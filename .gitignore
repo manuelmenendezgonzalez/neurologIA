@@ -31,4 +31,6 @@ venv/
 # Archivos generados y temporales
 *.png
 !**/assets/**/*.png
+*.pdf
+.quarto/
 scratch/

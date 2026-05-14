@@ -40,6 +40,20 @@ git clone https://github.com/manuelmenendezgonzalez/neurologIA.git
 pip install -r requirements.txt
 ```
 
+### Dependencia de sistema para Quarto
+
+`Quarto` no es una librería Python del `requirements.txt`, sino una herramienta externa de línea de comandos para renderizar archivos `.qmd` a PDF, HTML o Word.
+
+Instalación oficial:
+- [Descargar Quarto](https://quarto.org/docs/download/)
+
+Verificación recomendada:
+
+```bash
+quarto check
+quarto check jupyter
+```
+
 ## Cómo Usar Este Repositorio
 
 📚 **[Guía para Alumnos](GUIA_ALUMNOS.md)** - Instrucciones completas para trabajar con el curso usando **ChatGPT Plus** y un **IDE local** (VS Code o **Windsurf**, gratuito con IA integrada), incluyendo:
@@ -49,6 +63,21 @@ pip install -r requirements.txt
 - Cómo entregar tareas
 
 **Recomendación:** Lee la guía de alumnos antes de empezar los ejercicios.
+
+### Comprobación rápida del entorno
+
+Antes de empezar, puedes validar que Python, Jupyter, Quarto y las dependencias del curso están disponibles con:
+
+```bash
+python check_env.py
+```
+
+Si Quarto en Windows intenta usar `python3.13t.exe` y falla al renderizar, fuerza el intérprete estándar:
+
+```bash
+$env:QUARTO_PYTHON="C:\Users\TU_USUARIO\AppData\Local\Programs\Python\Python313\python.exe"
+quarto render archivo.qmd
+```
 
 ## Nota sobre Archivos Grandes
 
@@ -64,5 +93,3 @@ Las presentaciones de PowerPoint (`.pptx`) no están incluidas en este repositor
 **Manuel Menéndez González**
 
 ---
-
-

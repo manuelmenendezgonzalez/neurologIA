@@ -36,10 +36,10 @@ for m in metricas:
 
 # Detección de Disociación
 if paciente['Quejas_Subjetivas'] >= 7 and percentiles['Memoria_Episodica'] > 50:
-    print("\n⚠️ ALERTA: Disociación Subjetivo-Objetiva DETECTADA.")
+    print("\nALERTA: Disociacion Subjetivo-Objetiva DETECTADA.")
     print("El paciente refiere mala memoria, pero sus tests objetivos son NORMALES.")
     print(f"Fatiga detectada: {paciente['Fatiga']}/40")
-    print(f"Ansiedad detectable: {'SÍ' if paciente['Ansiedad'] == 1 else 'NO'}")
+    print(f"Ansiedad detectable: {'SI' if paciente['Ansiedad'] == 1 else 'NO'}")
 
 # ============================================================================
 # PASO 3: Visualización Radar (Paciente vs Media)
@@ -51,9 +51,28 @@ stats_mean = np.array([df[m].mean() for m in metricas])
 # Normalización para el gráfico
 stats_pac_norm = stats_pac / stats_pac.max() * 100
 stats_mean_norm = stats_mean / stats_mean.max() * 100
+angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False)
+
+# Cerramos el radar repitiendo el primer punto al final.
+labels = np.append(labels, labels[0])
+stats_pac_norm = np.append(stats_pac_norm, stats_pac_norm[0])
+stats_mean_norm = np.append(stats_mean_norm, stats_mean_norm[0])
+angles = np.append(angles, angles[0])
+
+fig, ax = plt.subplots(figsize=(7, 7), subplot_kw={'projection': 'polar'})
+ax.plot(angles, stats_pac_norm, color='#1f77b4', linewidth=2, label='Paciente 24')
+ax.fill(angles, stats_pac_norm, color='#1f77b4', alpha=0.25)
+ax.plot(angles, stats_mean_norm, color='#ff7f0e', linewidth=2, linestyle='--', label='Media cohorte')
+ax.set_xticks(angles[:-1])
+ax.set_xticklabels(labels[:-1])
+ax.set_yticklabels([])
+ax.set_title("Perfil neuropsicologico: Paciente 24 vs Cohorte", pad=20)
+ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1.1))
+plt.tight_layout()
+plt.savefig("radar_paciente_24.png", dpi=300)
+plt.close(fig)
 
 print("\nVisualización generada: radar_paciente_24.png")
-# (Simulamos la generación del gráfico para mantener el script limpio)
 print("=" * 60)
 print("CONCLUSIÓN: Mantener tratamiento actual. Tratar ansiedad y fatiga.")
 print("=" * 60)

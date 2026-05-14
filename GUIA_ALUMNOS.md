@@ -1,241 +1,156 @@
-# Guía para Alumnos: Flujo de Trabajo del Curso NeuroIA
+# Guia para Alumnos: Curso NeuroIA
 
-Esta guía explica cómo trabajar con el curso usando **ChatGPT Plus** (como profesor virtual) y un **IDE local** (para ejecutar todos los ejercicios con automatización completa).
-
----
-
-## 🎯 Arquitectura del Curso
-
-- **ChatGPT Proyecto**: Tu "profesor virtual" con instrucciones del curso pre-configuradas
-- **IDE Local**: Entorno de desarrollo para ejecutar código y generar archivos (`.pptx`, `.pdf`, etc.)
-- **Repositorio GitHub**: Materiales del curso, dataset y ejercicios
+Esta guia esta pensada para que aprendas a trabajar con Codex o con tu IDE con IA integrada. La idea no es que recibas soluciones cerradas, sino que aprendas a pedir al IDE el tipo de resultado correcto.
 
 ---
 
-## Paso 1: Instalar tu IDE (Obligatorio)
+## 1. Instala el entorno base
 
-Para ejecutar todos los ejercicios del curso (incluyendo generación de presentaciones y artículos), necesitas un IDE. Recomendamos estos dos gratuitos con IA integrada:
+1. Instala Python 3.11, 3.12 o 3.13 en su version estandar.
+2. En Windows, durante la instalacion marca `Add Python to PATH`.
+3. No uses la version free-threaded `python3.13t.exe`.
+4. Instala Quarto aparte desde [quarto.org](https://quarto.org/docs/download/).
 
-### Opción A: Windsurf (Con IA integrada gratuita)
+## 2. Instala dependencias del curso
 
-**Windsurf** es un IDE gratuito con IA integrada (Cascade) que puede leer tus archivos locales, corregir código y generar nuevos scripts automáticamente.
-
-1. Descarga Windsurf: https://www.windsurf.com/
-2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
-3. Durante la instalación de Python, marca la opción "Add Python to PATH"
-4. Abre Windsurf y abre la carpeta del repositorio clonado
-
-**Ventajas de Windsurf:**
-- ✅ IA integrada gratuita (pide ayuda con `Ctrl+K` o `Cmd+K`)
-- ✅ Lee tus archivos locales automáticamente
-- ✅ Puede editar código directamente
-- ✅ Similar a VS Code, sin necesidad de extensiones adicionales
-
-### Opción B: Antigravity (Con IA integrada gratuita)
-
-**Antigravity** es otro IDE gratuito con IA integrada que permite trabajar con código Python de forma interactiva.
-
-1. Descarga Antigravity: https://www.antigravity.dev/
-2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
-3. Durante la instalación de Python, marca la opción "Add Python to PATH"
-4. Abre Antigravity y abre la carpeta del repositorio clonado
-
-**Ventajas de Antigravity:**
-- ✅ IA integrada gratuita
-- ✅ Interfaz amigable para principiantes
-- ✅ Ejecución de código integrada
-- ✅ Soporte para Python y data science
-
-### Opción C: VS Code (Sin IA integrada)
-
-1. Descarga VS Code: https://code.visualstudio.com
-2. Instala Python: https://www.python.org/downloads/ (versión 3.8 o superior)
-3. Durante la instalación de Python, marca la opción "Add Python to PATH"
-
-### Extensiones de VS Code (recomendadas):
-
-- **Python** (Microsoft)
-- **Jupyter** (Microsoft) - si quieres usar notebooks
-- **GitLens** - para control de versiones
-
----
-
-## Paso 2: Abrir el Proyecto de ChatGPT (Tu Profesor Virtual)
-
-El profesor ha creado un **Proyecto de ChatGPT** que actúa como tu profesor virtual para este curso. Contiene todo el contexto del curso pre-cargado.
-
-🔗 **URL del Proyecto:** `https://chatgpt.com/g/g-p-69fa482eda308191af2c1545d6f7465e-curso-neurologia/project`
-
-### Cómo Acceder:
-
-1. Asegúrate de que el profesor te haya **invitado al área de trabajo** del curso
-2. Inicia sesión en **chat.openai.com** con tu cuenta ChatGPT Plus
-3. Navega a **Áreas de trabajo** (Workspaces) en el sidebar
-4. Selecciona el área de trabajo del curso
-5. Abre el proyecto **"Curso NeurologIA"**
-
-### Qué ofrece el Proyecto:
-
-- ✅ **Contexto pre-cargado**: El repo ya está indexado
-- ✅ **Instrucciones del curso**: Configurado específicamente para NeuroIA
-- ✅ **Historial persistente**: Tus conversaciones se guardan
-- ✅ **Supervisión**: El profesor puede ver y ayudar en tus chats
-
----
-
-## Paso 3: Configurar el Repositorio Local (A través del Proyecto ChatGPT)
-
-**NO clones el repo manualmente.** En el Proyecto de ChatGPT, pide:
-
-```
-Dame el prompt exacto para que mi IDE (Windsurf) clone el repositorio del curso e instale las dependencias.
-```
-
-ChatGPT te dará un prompt optimizado para tu IDE. Por ejemplo:
-
-```
-Abre la carpeta del curso NeuroIA. Clona este repositorio:
-https://github.com/manuelmenendezgonzalez/neurologIA.git
-
-Luego instala las dependencias:
-pip install -r requirements.txt
-
-Abre el proyecto en el IDE.
-```
-
-**Copia ese prompt y pégalo en Windsurf** (o presiona `Ctrl+K` y pide que lo ejecute).
-
----
-
-## Paso 4: Flujo de Trabajo Oficial del Curso
-
-Este es el flujo estándar para todos los ejercicios:
-
-### 1. Pide el ejercicio al Proyecto de ChatGPT
-
-En el Proyecto, escribe:
-```
-Quiero hacer el ejercicio [número]. Explícame qué debo hacer y dame el código/prompt para mi IDE.
-```
-
-### 2. Ejecuta en tu IDE (Windsurf)
-
-- Copia el código o el prompt que te dio ChatGPT
-- Presiona `Ctrl+K` en Windsurf y pégalo, o crea el archivo directamente
-- Pide a Windsurf que **explique y ejecute** el ejercicio paso a paso
-
-### 3. Si hay errores, problemas o dudas:
-
-**Tienes dos fuentes de ayuda:**
-
-- **Windsurf (IA integrada)**: Presiona `Ctrl+K` y describe el error. La IA del IDE puede leer tus archivos locales y corregir directamente.
-- **Proyecto ChatGPT**: Vuelve al chat del curso y pide ayuda. El profesor virtual tiene todo el contexto del ejercicio.
-
-### Ejemplos por tipo de ejercicio:
-
-**Ejercicios 1-6 (Análisis de Datos):**
-- ChatGPT te da el código Python
-- Windsurf ejecuta y muestra gráficos
-- Itera con Windsurf o ChatGPT si hay errores
-
-**Ejercicio 16 (Generación de PowerPoint):**
-- ChatGPT genera código `python-pptx`
-- Windsurf ejecuta → Se genera `.pptx` automáticamente
-- Revisa las diapositivas generadas
-
-**Ejercicio 17 (Artículo Científico):**
-- ChatGPT genera archivo `.qmd`
-- Windsurf compila con Quarto (si instalado) o genera el archivo
-- Obtienes PDF con formato científico
-
----
-
-## 💡 Prompts Útiles
-
-### Para empezar un ejercicio:
-```
-Quiero hacer el ejercicio [número]. 
-Explícame qué debo hacer paso a paso y dame el código completo.
-```
-
-### Para depurar errores:
-```
-Me da este error al ejecutar el código:
-[pegar traceback]
-
-Mi código actual:
-```python
-[pegar código]
-```
-¿Qué está mal y cómo lo arreglo?
-```
-
-### Para entender conceptos:
-```
-Explica [concepto estadístico/método] aplicado a neurología
-con un ejemplo del dataset EMRR.
-```
-
----
-
-## 📁 Estructura de Archivos en tu IDE
-
-```
-neurologIA/
-├── base_datos_emrr.csv          # Dataset del curso
-├── neuro_utils.py               # Utilidades (usa siempre load_and_clean_data)
-├── requirements.txt             # Dependencias
-├── Soluciones_y_Ejemplos/       # Ejemplos resueltos
-├── ejercicio1.py                # Tu solución (crea estos archivos)
-├── ejercicio2.py
-├── ...
-├── ejercicio16.py               # Genera PowerPoint
-└── articulo.qmd                 # Para ejercicio 17
-```
-
----
-
-## 🔧 Comandos Útiles en VS Code
+Abre una terminal en la carpeta raiz del repositorio y ejecuta:
 
 ```bash
-# Ejecutar un script
-python ejercicio3.py
-
-# Ver archivos generados
-ls
-
-# Actualizar el repo con cambios del profesor
-git pull
-
-# Ver cambios que has hecho
-git status
+pip install -r requirements.txt
+python check_env.py
 ```
 
----
+Si `check_env.py` termina en `READY`, el entorno esta preparado.
 
-## 📝 Entrega de Ejercicios
+## 3. Flujo minimo para el set de Alzheimer
 
-### Opción A: Archivos por email/Teams
-- Envía los archivos `.py` generados
-- Para Ej 16: envía el `.pptx`
-- Para Ej 17: envía el `.pdf`
+La secuencia correcta es:
 
-### Opción B: GitHub (si tienes cuenta)
-- Crea tu fork del repo
-- Sube tus archivos a tu fork
-- Comparte el link con el profesor
+1. Generar o regenerar la cohorte:
 
----
+```bash
+python Set_Alzheimer\Soluciones_y_Ejemplos\generar_datos_alzheimer.py
+```
 
-## ❓ Soporte
+2. Trabajar siempre sobre:
 
-- **Errores de instalación**: Consulta al profesor
-- **Errores de código**: Pregunta en el Proyecto de ChatGPT
-- **Dudas conceptuales**: ChatGPT es tu primer recurso
-- **Problemas con el repo**: Abre un issue en GitHub
+- `Set_Alzheimer/base_datos_alzheimer.csv`
+- `Set_Alzheimer/alzheimer_utils.py`
+- `Set_Alzheimer/preguntas_ejercicios_ALZ.md`
 
----
+3. Usar `load_and_clean_data()` desde `alzheimer_utils.py` en lugar de leer el CSV a mano.
 
-**¡Éxito en el curso!**
+Esto es importante porque `alzheimer_utils.py` ya crea variables derivadas comunes para todos los ejercicios:
 
-*Recuerda: ChatGPT Plus es una herramienta potente, pero la interpretación clínica y el juicio médico siempre son responsabilidad tuya como neurólogo.*
+- `Amyloid_Pos`
+- `Tau_Pos`
+- `Neurodeg_Pos`
+- `ATN_Perfil`
+- `Declive_MMSE_Anual`
+- `Cambio_CDRSB_Anual`
+- `Estado_Progresion`
+- `Candidato_Antiamiloide`
+
+## 4. Como pedir al IDE la bibliografia automatica
+
+No debes construir la bibliografia a mano. Debes pedirselo al IDE.
+
+Prompt recomendado:
+
+```text
+Busca de forma automatica 12-20 referencias reales y relevantes para la Introduccion y la Discusion del articulo sobre enfermedad de Alzheimer. Usa PubMed, Crossref u OpenAlex con herramientas Python si lo necesitas. Genera o actualiza references.bib y redacta despues la Introduccion y la Discusion usando solo esas referencias y citacion Quarto [@clave]. No inventes citas.
+```
+
+Prompt reforzado para controlar el tono final:
+
+```text
+El resultado final debe parecer un paper cientifico real. No menciones que esto es un set, un ejercicio, un curso, una presentacion, una diapositiva, un alumno o un profesor. En Resultados y Conclusiones habla solo de hallazgos clinicos y cientificos.
+```
+
+Reglas importantes:
+
+- El IDE debe citar solo referencias presentes en `references.bib`.
+- La `Introduccion` y la `Discusion` no deben inventar bibliografia.
+- Si falta una referencia clave, el IDE debe ampliar la busqueda y regenerar `references.bib`.
+- Si el IDE necesita automatizar la busqueda, debe crear sus propios scripts auxiliares.
+
+## 5. Regla clave entre Ejercicio 2 y Ejercicio 17
+
+En el bloque de Alzheimer, el `Ejercicio 2` y el `Ejercicio 17` estan ligados.
+
+- El `Ejercicio 2` genera una presentacion con apartados fijos.
+- El `Ejercicio 17` debe reutilizar esos mismos apartados en el mismo orden.
+- La presentacion es el esquema.
+- El articulo es el desarrollo extenso y coherente de ese esquema.
+- El paper final no puede hablar del curso, del set, del ejercicio, del profesor, del alumno ni del propio flujo de trabajo.
+
+## 6. Que debes pedirle al IDE para el articulo
+
+Prompt recomendado para el manuscrito:
+
+```text
+Redacta el articulo como un paper cientifico realista y clinicamente plausible. Usa los apartados del Ejercicio 2 como estructura. La Introduccion y la Discusion deben estar sustentadas en referencias reales. Los Resultados deben limitarse a describir hallazgos del analisis. La Discusion debe comparar esos hallazgos con la literatura. Elimina cualquier comentario metadocente o cualquier referencia a set, ejercicio, curso, presentacion, alumno o profesor.
+```
+
+## 7. Ejercicios que debes ejecutar en orden
+
+Bloque 1:
+
+```bash
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio1_caso_clinico_alzheimer.py
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio2_progresion_alzheimer.py
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio3_regresion_multimodal.py
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio4_clasificador_amiloide.py
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio5_clustering_alzheimer.py
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio6_efectividad_vida_real.py
+```
+
+Bloque 2:
+
+```bash
+python Set_Alzheimer\Soluciones_y_Ejemplos\ejercicio16_auditoria_alzheimer_premium.py
+```
+
+Bloque 3:
+
+```bash
+quarto render Set_Alzheimer\Soluciones_y_Ejemplos\articulo_neuroia_alzheimer.qmd
+```
+
+## 8. Nota importante para Quarto en Windows
+
+Si Quarto intenta usar `python3.13t.exe` o falla al ejecutar celdas Python, fuerza el interprete correcto:
+
+```powershell
+$env:QUARTO_PYTHON="C:\Users\TU_USUARIO\AppData\Local\Programs\Python\Python313\python.exe"
+quarto render Set_Alzheimer\Soluciones_y_Ejemplos\articulo_neuroia_alzheimer.qmd
+```
+
+## 9. Como evitar errores frecuentes en el manuscrito
+
+- No construyas tablas muy anchas para PDF.
+- Si una tabla tiene demasiadas columnas, reduce variables o dividela en dos tablas.
+- No copies bullets tal cual al articulo: conviertelos en parrafos con contexto, interpretacion y limitaciones.
+- La `Introduccion` y la `Discusion` deben incluir citas Quarto reales tipo `[@jack2018]`.
+- El paper final no debe contener frases metadocentes ni comentarios sobre la calidad del set o del ejercicio.
+
+## 10. Resultado esperado del set Alzheimer
+
+Si todo esta bien instalado, deberias poder generar al menos estos archivos:
+
+- `Set_Alzheimer/Ejercicio2_Progresion_Alzheimer.pptx`
+- `Set_Alzheimer/Auditoria_Clinica_Alzheimer.pptx`
+- `Set_Alzheimer/Soluciones_y_Ejemplos/articulo_neuroia_alzheimer.pdf`
+
+## 11. Si algo falla
+
+1. Reejecuta:
+
+```bash
+python check_env.py
+```
+
+2. Comprueba que estas usando el repo correcto y que existe `Set_Alzheimer`.
+3. Si el error es de Quarto, revisa primero `QUARTO_PYTHON`.
+4. Si el error es de codigo, vuelve a cargar datos usando `load_and_clean_data()`.
+5. Si el error es de bibliografia, pide al IDE que revise su propia estrategia de busqueda, conectividad y formato de citas.

@@ -46,27 +46,27 @@ El objetivo de este bloque es dominar el flujo:
 
 ### Ejercicio 1: Prompt para Caso Clínico EMRR_024 (Disociación)
 **Enunciado:** Redacta un prompt para analizar la disociación entre la fatiga percibida y los resultados en los tests cognitivos del paciente 24. El script debe calcular percentiles y validar si la queja subjetiva tiene base objetiva.
-**Estado:** ✅ Completado (Ver `ejemplo_caso_clinico1.py`).
+**Estado:** ✅ Completado (Ver `Soluciones_y_Ejemplos/ejemplo_caso_clinico1.py`).
 
 ### Ejercicio 2: Evolución Temporal del EDSS (Versión Premium)
 **Enunciado:** Redacta un prompt para clasificar a los pacientes en "Estables" vs "Progresores" basándose en la evolución de su EDSS y comparar el éxito según el tratamiento. El script final debe generar una **presentación ejecutiva Premium (.pptx)** con estética Gamma, incluyendo gráficos de distribución y un resumen de hallazgos clínicos.
-**Estado:** ✅ Completado (Ver `ejercicio2_edss_evolucion.py`).
+**Estado:** ✅ Completado (Ver `Soluciones_y_Ejemplos/ejercicio2_edss_evolucion.py`).
 
 ### Ejercicio 3: Prompt para Correlación Atrofia vs EDSS
 **Enunciado:** Redacta un prompt para realizar una regresión multivariable que determine el impacto de la atrofia cortical en la discapacidad, dividiendo la cohorte en terciles de atrofia.
-**Estado:** ✅ Completado (Ver `ejercicio3_atrofia_edss.py`).
+**Estado:** ✅ Completado (Ver `Soluciones_y_Ejemplos/ejercicio3_atrofia_edss.py`).
 
 ### Ejercicio 4: Prompt para Predicción de Brotes (ML)
 **Enunciado:** Redacta un prompt para entrenar un modelo predictivo (Random Forest) que estime el riesgo de nuevos brotes basándose en la actividad basal y la carga lesional.
-**Estado:** ✅ Completado (Ver `ejercicio4_brotes_predictivo.py`).
+**Estado:** ✅ Completado (Ver `Soluciones_y_Ejemplos/ejercicio4_brotes_predictivo.py`).
 
 ### Ejercicio 5: Prompt para Clustering de Fenotipos
 **Enunciado:** Redacta un prompt para realizar un Clustering K-means que identifique los 3 subtipos biológicos de EM (Inflamatoria, Neurodegenerativa y Mixta) usando PCA.
-**Estado:** ✅ Completado (Ver `ejercicio5_clustering.py`).
+**Estado:** ✅ Completado (Ver `Soluciones_y_Ejemplos/ejercicio5_clustering.py`).
 
 ### Ejercicio 6: Prompt para Eficacia en Vida Real
 **Enunciado:** Redacta un prompt para analizar la eficacia de los tratamientos en entorno observacional, ajustando por el "sesgo de indicación" (confusión por actividad basal).
-**Estado:** ✅ Completado (Ver `ejercicio6_tratamientos_eficacia.py`).
+**Estado:** ✅ Completado (Ver `Soluciones_y_Ejemplos/ejercicio6_tratamientos_eficacia.py`).
 
 ### Ejercicio 7 a 15: Retos de Precisión y Neurofisiología
 *(Continuación del programa: latencias patológicas, LCR, edad de debut y dashboards interactivos).*

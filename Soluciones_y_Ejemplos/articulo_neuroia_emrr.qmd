@@ -1,12 +1,13 @@
 ---
 title: "Impacto de la Carga Lesional y el Perfil Terapéutico en la Discapacidad a Largo Plazo de la EMRR"
-author: "Unidad de NeuroIA"
+author: "Autores:"
 date: "2026-04-25"
 format:
-  pdf:
+  typst:
     toc: true
     number-sections: true
     colorlinks: true
+bibliography: referencias.bib
 ---
 
 ```{python}
@@ -15,11 +16,19 @@ format:
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from neuro_utils import load_and_clean_data
+from pathlib import Path
+import sys
 import scipy.stats as stats
 
-# Cargar datos
-df = load_and_clean_data()
+repo_root = Path.cwd()
+if not (repo_root / "neuro_utils.py").exists():
+    repo_root = repo_root.parent
+sys.path.append(str(repo_root))
+from neuro_utils import load_and_clean_data
+
+# Cargar datos desde la raiz del repositorio para que funcione al renderizar
+# desde la carpeta del documento o desde la raiz.
+df = load_and_clean_data(str(repo_root / "base_datos_emrr.csv"))
 ```
 
 # Resumen (Abstract)
@@ -45,11 +54,11 @@ Evaluamos la relación entre la atrofia medida en RM y el rendimiento en memoria
 #| echo: false
 #| fig-cap: "Correlación entre Atrofia Cortical y Memoria Episódica."
 
-corr, p_val = stats.pearsonr(df['Atrofia_Cortical'], df['Memoria_Episodica'])
+corr, p_val = stats.pearsonr(df['MRI_Atrofia'], df['Memoria_Episodica'])
 print(f"Coeficiente de Correlación de Pearson: {corr:.3f} (p-valor: {p_val:.4f})")
 
 plt.figure(figsize=(8, 5))
-sns.regplot(x='Atrofia_Cortical', y='Memoria_Episodica', data=df, scatter_kws={'alpha':0.5})
+sns.regplot(x='MRI_Atrofia', y='Memoria_Episodica', data=df, scatter_kws={'alpha':0.5})
 plt.xlabel("Índice de Atrofia Cortical (Normalizado)")
 plt.ylabel("Puntuación Memoria Episódica")
 plt.show()
@@ -78,7 +87,7 @@ La siguiente tabla resume la discapacidad media según el perfil de tratamiento 
 ```{python}
 #| label: tbl-tratamientos
 #| echo: false
-tabla_resumen = df.groupby('Perfil_Tratamiento')['EDSS_Actual'].mean().reset_index()
+tabla_resumen = df.groupby('Tratamiento_Desc')['EDSS_Actual'].mean().reset_index()
 tabla_resumen.columns = ['Perfil de Tratamiento', 'Media EDSS Actual']
 print(tabla_resumen.to_markdown(index=False))
 ```

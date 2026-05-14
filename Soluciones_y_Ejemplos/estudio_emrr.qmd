@@ -1,6 +1,6 @@
 ---
 title: "Cuantificación del Daño Estructural y su Impacto en la Cognición: Un Estudio de Cohorte en EMRR"
-author: "Dr. [Nombre del Alumno]"
+author: "Autores:"
 affiliation: "Unidad de Neuroinmunología / Curso NeuroIA"
 date: "2026-04-25"
 format:

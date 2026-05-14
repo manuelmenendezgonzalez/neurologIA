@@ -7,7 +7,8 @@ from neuro_utils import load_and_clean_data
 df = load_and_clean_data()
 
 # Crear Terciles de Atrofia
-df['Tercil_Atrofia'] = pd.qcut(df['MRI_Atrofia'], 3, labels=['Severa', 'Moderada', 'Leve'])
+ranked_atrofia = df['MRI_Atrofia'].rank(method='first')
+df['Tercil_Atrofia'] = pd.qcut(ranked_atrofia, 3, labels=['Severa', 'Moderada', 'Leve'])
 
 print("ANÁLISIS DE REGRESIÓN: IMPACTO DE LA ATROFIA")
 print("-" * 50)
